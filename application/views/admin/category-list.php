@@ -27,10 +27,11 @@
 		<input type="text" value="<?php echo isset($_GET['keywords'])?$_GET['keywords']:'';?>" id="keywords" class="input-text" style="width:250px" placeholder="输入分类名称"name="">
 		<button onclick="searchCategory();" type="submit" class="btn btn-success radius" name=""><i class="Hui-iconfont">&#xe665;</i> 搜分类</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l">
 			<a href="javascript:;" onclick="member_del_bulk()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 			<a href="javascript:;" onclick="member_add('添加分类','/admin/categoryadd','500','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加分类</a>
+			
 		</span> 
 		<span class="r">共有数据：<strong><?php echo $pageInfo['amount'];?></strong> 条</span> 
 	</div>
@@ -40,6 +41,7 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="id" value=""></th>
 				<th width="120">超市</th>
+				<th width="120">活动专区</th>
 				<th width="120">分类名称</th>
 				<th width="80">排序序号</th>
 				<th width="120">添加时间</th>
@@ -51,7 +53,8 @@
 			<tr class="text-c">
 				<td><input type="checkbox" value="<?php echo $category->id;?>" name="id"></td>
 				<td><?php echo $category->supermarket->name.' - '.$category->supermarket->sname;?></td>
-				<td><?php echo $category->name;?></td>
+				<td><?php echo $category->supername;?></td>
+				<td>【二级】-<?php echo $category->name;?></td>
 				<td><?php echo $category->order;?></td>
 				<td><?php echo $category->addtime;?></td>
 				<td class="td-manage">

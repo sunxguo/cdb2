@@ -81,6 +81,7 @@ class Common extends CI_Controller {
 				$time=date("Y-m-d H:i:s");
 				$info=array(
 					"sid"=>$data->sid,
+					"supername"=>$data->supername,
 					"name"=>$data->name,
 					"order"=>$data->order,
 					"addtime"=>$time,
@@ -740,27 +741,4 @@ class Common extends CI_Controller {
 //		$this->load->view('redirect',array("url"=>"/uploads/".$title.date("Ymd").".xls"));
 		return '/'.$fileName;
 	}*/
-
-	public function updateActivity()
-	{
-		$table="";
-		$data=json_decode($_POST['data']);
-		$info=array();
-		$where=array();
-		switch($data->infoType)
-		{
-			case "activity":
-				$table="activity";
-				$where=array('id'=>$data->id);
-				$info=array('status');
-				if(isset($data->status))
-				{
-					$info['status']='3';
-				}
-			break;	
-		}
-		$result=$this->dbHandler->updateData(array('table'=>$table,'data'=>$info,'where'=>$where));
-		if($result==1) echo json_encode(array("result"=>"success","message"=>"状态修改成功"));
-		else echo json_encode(array("result"=>"failed","message"=>"状态修改失败"));
-	}
 }

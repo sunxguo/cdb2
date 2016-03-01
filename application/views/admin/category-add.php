@@ -29,9 +29,16 @@
       <div class="col-4"> </div>
     </div>
     <div class="row cl">
-      <label class="form-label col-3"><span class="c-red">*</span>名称：</label>
+      <label class="form-label col-3"><span class="c-red">*</span>活动专区：</label>
       <div class="formControls col-5">
-        <input type="text" class="input-text" value="" placeholder="" id="name" name="name" datatype="*2-16" nullmsg="名称不能为空">
+        <input type="text" class="input-text" value="" placeholder="" id="supername" name="supername" datatype="*2-16" nullmsg="分类不能为空">
+      </div>
+      <div class="col-4"> </div>
+    </div>
+    <div class="row cl">
+      <label class="form-label col-3"><span class="c-red">*</span>二级分类：</label>
+      <div class="formControls col-5">
+        <input type="text" class="input-text" value="" placeholder="" id="name" name="name" datatype="*2-16" nullmsg="分类不能为空">
       </div>
       <div class="col-4"> </div>
     </div>
@@ -50,17 +57,17 @@
 <script charset="utf-8" src="/assets/js/jquery.form.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.skin-minimal input').iCheck({
-		checkboxClass: 'icheckbox-blue',
-		radioClass: 'iradio-blue',
-		increaseArea: '20%'
-	});
-	
-	$("#form-member-add").Validform({
-		tiptype:2,
-		callback:function(form){
+  $('.skin-minimal input').iCheck({
+    checkboxClass: 'icheckbox-blue',
+    radioClass: 'iradio-blue',
+    increaseArea: '20%'
+  });
+  
+  $("#form-member-add").Validform({
+    tiptype:2,
+    callback:function(form){
       // alert('ok');
-			// form[0].submit();
+      // form[0].submit();
       saveCategory(true,function(){
         alert('添加成功！');
         var index = parent.layer.getFrameIndex(window.name);
@@ -68,8 +75,8 @@ $(function(){
         parent.window.location.reload();
         parent.layer.close(index);
       });
-		}
-	});
+    }
+  });
 });
 </script>
 </body>

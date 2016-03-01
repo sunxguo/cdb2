@@ -48,6 +48,7 @@ function checkListStyle(){
 }
 function uploadThumb(){
     uploadImage("#uploadImgThumb",beforeUpload,successHandler);
+    // console.log();
 }
 function beforeUpload(){
     $("#thumbnail").attr('src','/assets/images/loading.gif');
@@ -98,6 +99,7 @@ function searchSellerMarket(){
     if($("#keywords").val()!=''){
         extUrl+='&keywords='+$("#keywords").val();
     }
+    
     location.href="/admin/sellermarketlist"+extUrl;
 }
 function searchSellerDelivery(){
@@ -408,6 +410,7 @@ function saveSuperMarket(isNew,callBack){
 function saveProduct(isNew,callBack){
     showWait();
     var product = new Object(); 
+    //alert(product);
     product.infoType = 'product';
     product.sid = $("#supermarket").val();
     product.categoryid = $("#category").val();
@@ -422,6 +425,7 @@ function saveProduct(isNew,callBack){
         product.id = $("#id").val();
         method = 'modify';
     }
+    //alert('123456');
     dataHandler('/common/'+method+'Info',product,null,null,null,callBack,false,false);
 }
 function saveCategory(isNew,callBack){
@@ -430,6 +434,7 @@ function saveCategory(isNew,callBack){
     category.infoType = 'category';
     category.sid = $("#supermarket").val();
     category.order = $("#order").val();
+    category.supername = $("#supername").val();
     category.name = $("#name").val();
     var method='add';
     if(!isNew){
@@ -504,6 +509,46 @@ function setSupermarketLogo(){
 function getSupermarketSuccess(supermarket){
     $("#thumbnail").attr('src',supermarket.logo);
     closeWait();
+}
+//添加优惠活动
+function saveActivity(isNew,callBack){
+    // if($("#useprice").val()<$("#facevalue").val()){
+    //     alert('使用条件不能小于面值！');
+    //     return false;
+    // }
+    //alert(123);
+    showWait();
+    var activity = new Object(); 
+    activity.infoType = 'activity';
+    activity.sid = $("#subsupermarket").val();
+    activity.name = $("input[name='name']:checked").val();
+    //判断优惠活动 1 - 优惠券   2 - 减免活动
+    //不能用if判断?
+    if(activity.name == '1')
+    {
+        activity.content = $("#content").val();
+        activity.begintime = $("#datemin").val();
+        activity.endtime = $("#datemax").val();
+        activity.status = $("input[name='status']:checked").val();
+    }
+    else
+    {
+        activity.fullprice = $("#fullprice").val(); //满减活动的满足条件
+        activity.reduceprice = $("#reduceprice").val(); // 满减活动的减免金额
+        activity.content = $("#content").val();
+        activity.begintime = $("#datemin").val();
+        activity.endtime = $("#datemax").val();
+        activity.status = $("input[name='status']:checked").val();
+    }
+    
+    // alert(activity);
+    var method='add';
+    if(!isNew){
+        activity.id = $("#id").val();
+        method = 'modify';
+    }
+
+    dataHandler('/common/'+method+'Info',activity,null,null,null,callBack,false,false);
 }
 // function uploadThumb1(){
 //     uploadImageAdvance("#uploadImgThumb1",beforeUpload1,successHandler1);
