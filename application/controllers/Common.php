@@ -145,7 +145,7 @@ class Common extends CI_Controller {
 							"name"=>$data->name,
 							"content"=>$data->content,
 							"begintime"=>$data->begintime,
-							//"photo"=>strstr($data->photo,'http')?$data->photo:SERVER_IP.($data->photo),
+							"thumbnail1"=>strstr($data->photo,'http')?$data->photo:SERVER_IP.($data->photo),
 							"endtime"=>$data->endtime,
 							"addtime"=>$time,
 							
@@ -535,6 +535,12 @@ class Common extends CI_Controller {
 				$condition['table']="aboutus";
 				$condition['where']=array("id"=>$data->id);
 			break;
+            case 'activity':
+				$condition['table']="activity";
+				$condition['where']=array("id"=>$data->id);
+			break;
+			
+			
 			// case 'essay':
 			// 	$condition['table']="essay";
 			// 	$condition['where']=array("id"=>$data->id);
@@ -596,6 +602,7 @@ class Common extends CI_Controller {
 				$table="aboutus";
 				$where="id";
 			break;
+			
 		}
 		foreach ($data->idArray as $value) {
 			$result=$this->dbHandler->deleteData(array('table'=>$table,'where'=>array($where=>$value)));
@@ -733,4 +740,27 @@ class Common extends CI_Controller {
 //		$this->load->view('redirect',array("url"=>"/uploads/".$title.date("Ymd").".xls"));
 		return '/'.$fileName;
 	}*/
+
+	public function updateActivity()
+	{
+		$table="";
+		$data=json_decode($_POST['data']);
+		$info=array();
+		$where=array();
+		switch($data->infoType)
+		{
+			case "activity":
+				$table="activity";
+				$where=array('id'=>$data->id);
+				$info=array('status');
+				if(isset($data->status))
+				{
+					$info['status']='3';
+				}
+			break;	
+		}
+		$result=$this->dbHandler->updateData(array('table'=>$table,'data'=>$info,'where'=>$where));
+		if($result==1) echo json_encode(array("result"=>"success","message"=>"状态修改成功"));
+		else echo json_encode(array("result"=>"failed","message"=>"状态修改失败"));
+	}
 }
