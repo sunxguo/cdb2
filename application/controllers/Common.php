@@ -65,7 +65,7 @@ class Common extends CI_Controller {
 				$time=date("Y-m-d H:i:s");
 				$info=array(
 					"sid"=>$data->sid,
-					"name"=>$data->name,
+					"detailedname"=>$data->detailedname,
 					"barcode"=>$data->barcode,
 					"price"=>$data->price,
 					"pic1"=>strstr($data->photo,'http')?$data->photo:SERVER_IP.($data->photo),

@@ -66,7 +66,7 @@
 				<td><img src="<?php echo $product->pic1;?>" width="50"></td>
 				<td><?php echo $product->supermarket->name.' - '.$product->supermarket->sname;?></td>
 				<td><?php echo $product->category->name;?></td>
-				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('<?php echo $product->name;?>','/admin/productshow','<?php echo $product->id;?>','360','380')"><?php echo $product->name;?></u></td>
+				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('<?php echo $product->name;?>','/admin/productshow','<?php echo $product->id;?>','360','380')"><?php echo $product->detailedname;?></u></td>
 				<td><?php echo $product->barcode;?></td>
 				<td>￥ <?php echo $product->price;?></td>
 				<td><?php echo $product->isedit=='1'?'是':'否';?></td>

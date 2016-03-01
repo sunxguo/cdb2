@@ -907,4 +907,60 @@ class Admin extends CI_Controller {
 	// public function forum(){
 	// 	$this->adminCommon('forum','论坛','forumlist');
 	// }
+    // 优惠活动管理
+	public function activitylist()
+	{
+		$couponParameters=array(
+			'result'=>'count',
+			'orderBy'=>array('addtime'=>'DESC')
+		);
+		if(isset($_GET['startTime'])){
+			$couponParameters['time']['begin']=$_GET['startTime'].' 00:00:00';
+		}
+		if(isset($_GET['endTime'])){
+			$couponParameters['time']['end']=$_GET['endTime'].' 23:59:59';
+		}
+		if(isset($_GET['sid'])){
+			$couponParameters['sid']=$_GET['sid'];
+		}
+		$amount=$this->getdata->getActivity($couponParameters);
+		$baseUrl='/admin/activitylist?placeholder=true';
+		$selectUrl='/admin/activitylist?placeholder=true';
+		$currentPage=isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+		//展示20条数据
+		$amountPerPage=20;
+		$pageInfo=$this->getdata->getPageLink($baseUrl,$selectUrl,$currentPage,$amountPerPage,$amount);
+		$couponParameters['result']='data';
+		// $bannerParameters['limit']=$pageInfo['limit'];
+		$activity=$this->getdata->getActivity($couponParameters);
+		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
+		//选择视图 带入数据
+		$parameters=array(
+			'view'=>'activity-list',
+			'data'=>array('activity'=>$activity,'pageInfo'=>$pageInfo,'supermarkets'=>$supermarkets)
+		);
+
+		$this->adminCommonHandler($parameters);
+	}
+    //添加优惠活动
+	public function activityadd(){
+		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
+		$parameters=array(
+			'view'=>'activity-add',
+			'data'=>array('supermarkets'=>$supermarkets)
+		);
+		$this->adminCommonHandler($parameters);
+	}
+
+	//添加子分类
+	public function subcategoryadd(){
+		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
+		$category=$this->getdata->getAllCategory(true,false);
+		$parameters=array(
+			'view'=>'activity-add',
+			'data'=>array('supermarkets'=>$supermarkets),
+			'cate'=>array('category'=>$category)
+		);
+		$this->adminCommonHandler($parameters);
+	}
 }
