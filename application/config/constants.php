@@ -86,4 +86,4 @@ define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-define('SERVER_IP', 'http://cdb.fengdukeji.com'); // 
+define('SERVER_IP', 'http://cdb2.fengdukeji.com'); // 
