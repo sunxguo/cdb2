@@ -154,9 +154,7 @@ function searchProduct(){
     var extUrl='?placeholder=true';
     if($("#datemin").val()!=''){
         extUrl+='&startTime='+$("#datemin").val();
-    }\\
-
-
+    }
     if($("#datemax").val()!=''){
         extUrl+='&endTime='+$("#datemax").val();
     }
@@ -285,7 +283,6 @@ function saveBanner(isNew,isDraft){
     dataHandler('/common/'+method+'Info',banner,null,null,null,addBannerSuccessHandler,false,false);
     
 }
-
 function addBannerSuccessHandler(){
     $("#waitDiv").hide(100);
     showAlert('success','保存成功！正在刷新...','');
@@ -413,10 +410,11 @@ function saveSuperMarket(isNew,callBack){
 function saveProduct(isNew,callBack){
     showWait();
     var product = new Object(); 
+    //alert(product);
     product.infoType = 'product';
     product.sid = $("#supermarket").val();
     product.categoryid = $("#category").val();
-    product.name = $("#name").val();
+    product.detailedname = $("#detailedname").val();
     product.barcode = $("#barcode").val();
     product.price = $("#price").val();
     product.photo = $("#thumbnail").attr('src');
@@ -427,6 +425,7 @@ function saveProduct(isNew,callBack){
         product.id = $("#id").val();
         method = 'modify';
     }
+    //alert('123456');
     dataHandler('/common/'+method+'Info',product,null,null,null,callBack,false,false);
 }
 function saveCategory(isNew,callBack){
@@ -435,6 +434,7 @@ function saveCategory(isNew,callBack){
     category.infoType = 'category';
     category.sid = $("#supermarket").val();
     category.order = $("#order").val();
+    category.supername = $("#supername").val();
     category.name = $("#name").val();
     var method='add';
     if(!isNew){
@@ -516,6 +516,7 @@ function saveActivity(isNew,callBack){
     //     alert('使用条件不能小于面值！');
     //     return false;
     // }
+    //alert(123);
     showWait();
     var activity = new Object(); 
     activity.infoType = 'activity';
@@ -540,7 +541,7 @@ function saveActivity(isNew,callBack){
         activity.status = $("input[name='status']:checked").val();
     }
     
- 
+    // alert(activity);
     var method='add';
     if(!isNew){
         activity.id = $("#id").val();
