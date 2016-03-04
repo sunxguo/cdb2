@@ -36,6 +36,7 @@
       <label class="form-label col-3"><span class="c-red">*</span>商品名称：</label>
       <div class="formControls col-5">
         <!-- <span id="supermarketname"></span> -->
+
         <input type="text" class="input-text" value="" placeholder="" id="name" name="name" datatype="*2-16" nullmsg="商品名称不能为空">
       </div>
       <div class="col-4"> </div>
@@ -57,6 +58,7 @@
       </div>
       <div class="col-4"> </div>
     </div>
+
 
     <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>价格：</label>
@@ -125,6 +127,7 @@
         </div>
         <div class="radio-box">
           <input type="radio" id="isrecommend-2" name="isrecommend" value="1">
+
           <label for="isedit-2">是</label>
         </div>
       </div>

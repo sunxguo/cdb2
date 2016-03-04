@@ -113,22 +113,21 @@
 				<!-- <td><u style="cursor:pointer" class="text-primary" onclick="member_show('<?php echo $product->name;?>','/admin/productshow','<?php echo $product->id;?>','360','380')"><?php echo $product->name;?></u></td> -->
 				
 				<?php if($order->status=='0'):?>
-				<td class="td-status"><span class="label label-danger radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='1'):?>
-				<td class="td-status"><span class="label label-primary radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='2'):?>
-				<td class="td-status"><span class="label label-secondary radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='3'):?>
-				<td class="td-status"><span class="label label-secondary radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='4'):?>
-				<td class="td-status"><span class="label label-warning radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='5'):?>
-				<td class="td-status"><span class="label label-success radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='6'):?>
-				<td class="td-status"><span class="label label-success radius"><?php echo $order->status_zn?></span></td>
-				
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='-1'):?>
-				<td class="td-status"><span class="label label-error radius"><?php echo $order->status_zn?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php else:?>
 				<td class="td-status"><?php echo $order->status_zn?></td>
 				<?php endif;?>

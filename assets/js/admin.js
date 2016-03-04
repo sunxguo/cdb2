@@ -191,6 +191,7 @@ function searchActivitygoods(){
     extUrl+='&isattend='+ 1 ;
     location.href="/admin/activityarealist"+extUrl;
 }
+
 function searchOrder(){
     var extUrl='?placeholder=true';
     if($("#datemin").val()!=''){
@@ -266,6 +267,7 @@ function searchActivity(){
     // }
     location.href="/admin/activitylist"+extUrl;
 }
+
 function searchAdvice(){
     var extUrl='?placeholder=true';
     if($("#datemin").val()!=''){
@@ -387,20 +389,19 @@ function saveSeller(isNew,callBack){
     dataHandler('/common/'+method+'Info',seller,null,null,null,callBack,false,false);
 }
 function saveCoupon(isNew,callBack){
-    // var useprice = sprintf("%.2f", $("#useprice").val());
+    var useprice = $("#useprice").val();
     // alert(useprice);
-    // var facevalue = sprintf("%.2f", $("#facevalue").val());
+    var facevalue = $("#facevalue").val();
     // alert(facevalue);
-    // if(userprice < facevalue)
-    // {
-    //     alert('使用条件不能小于面值！');
-    //     return false;
-    // }
-    if($("#useprice").val() < $("#facevalue").val())
+    if( parseInt(useprice) < parseInt(facevalue))
     {
         alert('使用条件不能小于面值！');
         return false;
     }
+    // if($("#useprice").val()<$("#facevalue").val()){
+    //     alert('使用条件不能小于面值！');
+    //     return false;
+    // }
     showWait();
     var coupon = new Object(); 
     coupon.infoType = 'coupons';
@@ -410,6 +411,7 @@ function saveCoupon(isNew,callBack){
     coupon.useprice = $("#useprice").val();
     coupon.beginvalid = $("#datemin").val();
     coupon.endvalid = $("#datemax").val();
+    // coupon.pushmsg = $("input[name='pushmsg']:checked").val();
     // coupon.pushmsg = $("input[name='pushmsg']:checked").val();
     var method='add';
     if(!isNew){
@@ -457,6 +459,7 @@ function saveSuperMarket(isNew,callBack){
     dataHandler('/common/'+method+'Info',supermarket,null,null,null,callBack,false,false);
 }
 //添加商品
+
 function saveProduct(isNew,callBack){
     showWait();
     var product = new Object(); 
@@ -475,6 +478,11 @@ function saveProduct(isNew,callBack){
     product.isedit = $("input[name='isedit']:checked").val();
     product.isattend = $("input[name='isattend']:checked").val();
     product.isrecommend = $("input[name='isrecommend']:checked").val();
+    product.detailedname = $("#detailedname").val();
+    product.barcode = $("#barcode").val();
+    product.price = $("#price").val();
+    product.photo = $("#thumbnail").attr('src');
+    product.isedit = $("input[name='isedit']:checked").val();
     product.status = $("input[name='status']:checked").val();
     var method='add';
     if(!isNew){
@@ -529,6 +537,24 @@ function saveCategory(isNew,callBack)
     }
     dataHandler('/common/'+method+'Info',category,null,null,null,callBack,false,false);
 }
+//修改分类
+function updateCategory(isNew,callBack)
+{
+    showWait();
+    var category = new Object(); 
+    category.infoType = 'category';
+    category.order = $("#order").val();
+    category.name = $("#name").val();
+    category.supername = $("#supername").val();
+    var method='';
+    if(!isNew)
+    {
+        category.id = $("#id").val();
+        method = 'modify';
+    }
+    dataHandler('/common/'+method+'Info',category,null,null,null,callBack,false,false);
+}
+
 
 //添加一级分类
 function addCategory(isNew,callBack)
@@ -553,7 +579,7 @@ function saveSubCategory(isNew,callBack)
 {
     showWait();
     var subcategory = new Object(); 
-    subcategory.infoType = 'category';
+    subcategory.infoType = 'subcategory';
     subcategory.sid = $("#supermarket").val();
     subcategory.superid = $("#category").val();
     subcategory.name = $("#name").val();
@@ -565,6 +591,7 @@ function saveSubCategory(isNew,callBack)
     }
     dataHandler('/common/'+method+'Info',subcategory,null,null,null,callBack,false,false);
 }
+
 
 function saveSellerPassword(callBack){
     showWait();
@@ -605,6 +632,7 @@ function getSubSupermarketsSuccess(subSupermarkets){
 //     $("#category").html(htmlOption);
 //     closeWait();
 // }
+
 function getCategories(){
     showWait();
     var supermarket = new Object(); 
@@ -683,11 +711,21 @@ function getSupermarketSuccess(supermarket){
     closeWait();
 }
 //添加优惠活动
-function saveActivity(isNew,callBack){
-    if($("#fullprice").val()<$("#reduceprice").val()){
+function saveActivity(isNew,callBack)
+{
+    var fullprice=$("#fullprice").val();
+    var reduceprice=$("#reduceprice").val();
+    if(parseInt(fullprice)<parseInt(reduceprice))
+    {
         alert('优惠金额不能小于优惠条件！');
         return false;
     }
+
+    // if($("#useprice").val()<$("#facevalue").val()){
+    //     alert('使用条件不能小于面值！');
+    //     return false;
+    // }
+    //alert(123);
     showWait();
     var activity = new Object(); 
     activity.infoType = 'activity';

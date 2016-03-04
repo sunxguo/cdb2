@@ -69,6 +69,7 @@
       <label class="form-label col-3"><span class="c-red">*</span>商品图片：</label>
       <div class="formControls col-5">
         <img src="<?php echo $product->pic1;?>" id="thumbnail" style="max-width:90%;max-height:100px;">
+
         <span class="btn-upload form-group">
           <a href="javascript:$('#file').click();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 选择图片</a>
         </span>

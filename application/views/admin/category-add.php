@@ -21,20 +21,13 @@
         </span> </div>
       <div class="col-4"> </div>
     </div>
-    <!-- <div class="row cl">
-      <label class="form-label col-3"><span class="c-red">*</span>序号：</label>
-      <div class="formControls col-5">
-        <input type="text" class="input-text" value="0" placeholder="" id="order" name="order" datatype="n" nullmsg="序号不能为空">
-      </div>
-      <div class="col-4"> </div>
-    </div> -->
+
      <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>序号：</label>
       <div class="formControls col-5">
         <input type="text" class="input-text" value="0" placeholder="" id="order" name="order" datatype="n" nullmsg="序号不能为空">
-      </div>
-      <div class="col-4"> </div>
-    </div>
+     </div>
+     </div>
     <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>一级分类：</label>
       <div class="formControls col-5">
@@ -68,7 +61,7 @@ $(function(){
     callback:function(form){
       // alert('ok');
       // form[0].submit();
-      addCategory(true,function(){
+    addCategory(true,function(){
         alert('添加成功！');
         var index = parent.layer.getFrameIndex(window.name);
         // parent.$('.btn-refresh').click();

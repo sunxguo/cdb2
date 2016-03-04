@@ -503,7 +503,11 @@ border-right: 0;
 	background-color: #333333;
 }
 .km-modal-open {
+<<<<<<< HEAD
 	overflow: auto;
+=======
+	overflow: hidden;
+>>>>>>> 16935af3f19093659009f5311db1f59453d601c0
 }
 .km-modal-dialog {
 	position: fixed;

@@ -84,6 +84,7 @@
 					<li><a _href="/admin/categorylist" href="javascript:void(0)">分类管理</a></li>
 					<li><a _href="/admin/activityarealist" href="javascript:void(0)">活动专区</a></li>
 					<li><a _href="/admin/recommendlist" href="javascript:void(0)">今日推荐</a></li>
+
 				</ul>
 			</dd>
 		</dl>

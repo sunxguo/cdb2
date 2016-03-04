@@ -108,6 +108,7 @@ class GetData{
 			'table'=>$type,
 			'result'=>'data',
 			'where'=>array('id'=>$contentId)
+
 		);
 		return $this->getOneData($condition);
 	}
@@ -244,7 +245,7 @@ class GetData{
 				$value->supermarket=$this->getContent('supermarket',$value->defaultsid);
 			}
 		}
-		// var_dump($buyers);
+
 		return $buyers;
 	}
 	public function getProducts($parameters){
@@ -275,6 +276,7 @@ class GetData{
 				$condition['where']['addtime <=']=$parameters['time']['end'];
 			}
 		}
+
 		$condition['where']['isattend']= '0' ;
 		$products=$this->getData($condition);
 		if($parameters['result']=='data'){
@@ -356,7 +358,6 @@ class GetData{
 			}
 		}
         $condition['where']['isrecommend']= '1';
-
 		$products=$this->getData($condition);
 		if($parameters['result']=='data'){
 			foreach ($products as $key => $value) {
@@ -406,6 +407,7 @@ class GetData{
 				$condition['where']['addtime <=']=$parameters['time']['end'];
 			}
 		}
+
 		
 		$orders=$this->getData($condition);
 		$status=$this->getOrderStatus();
@@ -422,6 +424,7 @@ class GetData{
 				$value->status_zn=$status[$value->status];
 			}
 		}
+
 // var_dump($value->status_zn);
 		return $orders;
 	}
@@ -526,6 +529,7 @@ class GetData{
 		}
 		return $coupons;
 	}
+
 	//查出优惠活动数据
 	public function getActivity($parameters){
 		$condition=array(
@@ -565,7 +569,6 @@ class GetData{
 		}
 		return $activity;
 	}
-
 	public function getAdvices($parameters){
 		$condition=array(
 			'table'=>'advice',
@@ -645,6 +648,7 @@ class GetData{
 		// }
 		return $aboutuss;
 	}
+
 	public function getOrderStatus()
 	{
 		$status=array
@@ -663,6 +667,7 @@ class GetData{
 			'10'=>'拣货员已完成/待发货',
 			'11'=>'待处理(抢单成功)',
 			'12'=>'待抢单'
+			
 		);
 		return $status;
 	}
@@ -741,6 +746,7 @@ class GetData{
 			$supermarketsArray=array();
 			foreach ($supermarkets as $value) {
 				$supermarketsArray[$value->id]=$value;
+
 				foreach ($value->subSupermarkets as $v) 
 				{
 					$supermarketsArray[$v->id]=$v;
@@ -750,12 +756,14 @@ class GetData{
 		}
 		return $supermarkets;
 	}
+
     //查出一级分类
 	public function getAllCategory($withSub=false,$asArray=false){
 		$parameters=array(
 			'result'=>'data',
 			'type'=>0,
-			'orderBy'=>array('name'=>'ASC')
+			'orderBy'=>array('name'=>'ASC'),
+
 		);
 		$categorys=$this->getCategories($parameters);//所有一级分类
 		if($withSub){
@@ -791,6 +799,7 @@ class GetData{
 		$buyers=$this->getBuyers($parameters);//所有一级分类
 		return $buyers;
 	}	
+// 
 	public function getSubSupermarkets($sid){
 		$supermarket=$this->getContent('supermarket',$sid);
 		if(!isset($supermarket->no)){
@@ -848,6 +857,7 @@ class GetData{
 		$condition=array(
 			'table'=>'category',
 			'result'=>$parameters['result']
+			// 'group_by'=>'supername'
 		);
 		if(isset($parameters['sid'])){
 			$condition['where']['sid']=$parameters['sid'];
@@ -907,6 +917,41 @@ class GetData{
 	// 	}
 	// 	return $returnData;
 	// }
+//查出不重复的一级分类数据  在添加二级分类时要用
+	public function getCategory($parameters){
+		$condition=array(
+			'table'=>'category',
+			'result'=>$parameters['result'],
+			'group_by'=>'supername'
+		);
+		if(isset($parameters['sid'])){
+			$condition['where']['sid']=$parameters['sid'];
+		}
+		if(isset($parameters['keywords'])){
+			$condition['or_like_bracket']['name']=$parameters['keywords'];
+		}
+		if(isset($parameters['limit'])){
+			$condition['limit']=$parameters['limit'];
+		}
+		if(isset($parameters['time'])){
+			if(isset($parameters['time']['begin'])){
+				$condition['where']['addtime >=']=$parameters['time']['begin'];
+			}
+			if(isset($parameters['time']['end'])){
+				$condition['where']['addtime <=']=$parameters['time']['end'];
+			}
+		}
+		if(isset($parameters['orderBy'])){
+			$condition['order_by']=$parameters['orderBy'];
+		}
+		$categories=$this->getData($condition);
+		if($parameters['result']=='data'){
+			foreach ($categories as $key => $value) {
+				$value->supermarket=$this->getContent('supermarket',$value->sid);
+			}
+		}
+		return $categories;
+	}
 
 	public function checkCode($code){
 		if(strcasecmp($code,$_SESSION['authcode'])==0){
@@ -951,7 +996,8 @@ class GetData{
 		QRcode::png($value,$QR, $errorCorrectionLevel, $matrixPointSize, 2);
 		return  $QR;
 	}
-	public function twoDimensionCodeWithLogo($text,$appid,$logoSrc){
+	public function twoDimensionCodeWithLogo($text,$appid,$logoSrc)
+	{
 		$value = $text; //二维码内容   
 		$errorCorrectionLevel = 'H';//容错级别   
 		$matrixPointSize = 10;//生成图片大小    
@@ -960,7 +1006,8 @@ class GetData{
 		//生成二维码图片
 		QRcode::png($value,$QR, $errorCorrectionLevel, $matrixPointSize, 2);
 		$logo = $_SERVER['DOCUMENT_ROOT'].$logoSrc;//准备好的logo图片 
-		if ($logo !== FALSE) {
+		if ($logo !== FALSE)
+		{
 			$QR = imagecreatefromstring(file_get_contents($QR));   
 			$logo = imagecreatefromstring(file_get_contents($logo));   
 			$QR_width = imagesx($QR);//二维码图片宽度   
@@ -981,8 +1028,6 @@ class GetData{
 		imagepng($QR,$_SERVER['DOCUMENT_ROOT'].$dstLocation);   
 		return  $dstLocation; 
 	}
-
-
 }
-
 /* End of file Common.php */
+?>

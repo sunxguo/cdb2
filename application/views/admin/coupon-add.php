@@ -27,11 +27,15 @@
       <div class="col-4"> </div>
     </div>
     <!-- <div class="row cl">
+=======
+    <div class="row cl">
+>>>>>>> 16935af3f19093659009f5311db1f59453d601c0
       <label class="form-label col-3"><span class="c-red">*</span>用户插队码：</label>
       <div class="formControls col-5">
         <input type="text" class="input-text" value="" placeholder="多用户用英文逗号分隔，只填写0为所有用户" id="buyer" name="member-buyer" datatype="*2-16" nullmsg="用户不能为空">
       </div>
       <div class="col-4"> </div>
+<<<<<<< HEAD
     </div> -->
     <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>用户：</label>
@@ -92,6 +96,9 @@
       <div class="col-4"> </div>
     </div> -->
     <!-- <div class="row cl">
+=======
+    <div class="row cl">
+>>>>>>> 16935af3f19093659009f5311db1f59453d601c0
       <label class="form-label col-3"><span class="c-red">*</span>是否推送消息：</label>
       <div class="formControls col-5 skin-minimal">
         <div class="radio-box">
@@ -104,7 +111,9 @@
         </div>
       </div>
       <div class="col-4"> </div>
+<<<<<<< HEAD
     </div> -->
+
     <div class="row cl">
       <div class="col-9 col-offset-3">
         <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;添加&nbsp;&nbsp;">

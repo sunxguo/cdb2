@@ -20,6 +20,7 @@
           <option value="-1">所有</option>
           <?php foreach($categories as $category):?>
           	<option value="<?php echo $category->id;?>" <?php echo isset($_GET['categoryid']) && $_GET['categoryid']==$category->id?'selected':'';?>><?php echo $category->name;?></option>
+
           <?php endforeach;?>
         </select>
          添加时间：

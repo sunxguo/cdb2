@@ -7,11 +7,13 @@ class Common extends CI_Controller {
 		$this->load->helper("upload");
 		$this->load->library('GetData');
         //$this->load->library('PHPExcel');
+//		$this->load->library('PHPExcel');
 		$this->load->model("dbHandler");
 	}
 	public function addInfo(){
 		$table="";
 		$data=json_decode($_POST['data']);
+
 		$info=array();
 		switch($data->infoType){
 			case "banner":
@@ -81,23 +83,30 @@ class Common extends CI_Controller {
 					"edittime"=>$time
 				);
 			break;
-			case "category":
-				$table="category";
-				$time=date("Y-m-d H:i:s");
-				$info=array(
-					"sid"=>$data->sid,
-					"name"=>$data->name,
-					"order"=>$data->order,
-					"addtime"=>$time,
-					"edittime"=>$time
-				);
-			break;
+			// case "category":
+			// 	$table="category";
+			// 	$time=date("Y-m-d H:i:s");
+			// 	$info=array(
+			// 		"sid"=>$data->sid,
+			// 		// "supername"=>$data->supername,
+			// 		"name"=>$data->name,
+			// 		"order"=>$data->order,
+			// 		"addtime"=>$time,
+			// 		"edittime"=>$time
+			// 	);
+			// break;
 			case "subcategory":
+			    if($this->getdata->isExist('category',array('name'=>$data->name,'sid'=>$data->sid))){
+					echo json_encode(array("result"=>"failed","message"=>"该二级分类已经存在，请更换！"));
+					return false;
+				}
 				$table="category";
 				$time=date("Y-m-d H:i:s");
+				$category=$this->getdata->getContent('category',$data->superid);
 				$info=array(
 					"sid"=>$data->sid,
-					"supername"=>$data->superid,
+					"superid"=>$data->superid,
+					"supername"=>$category->supername,
 					"name"=>$data->name,
 					"addtime"=>$time,
 					"edittime"=>$time
@@ -156,13 +165,12 @@ class Common extends CI_Controller {
 					$time=date("Y-m-d H:i:s");
 					if($data->name == '1')
 					{
-					
-						$info=array
-						(
+			
+						$info=array(
 							"sid"=>$data->sid,
 							"name"=>$data->name,
 							"content"=>$data->content,
-							"thumbnail1"=>strstr($data->thumbnail,'http')?$data->thumbnail:SERVER_IP.($data->thumbnail),
+							"thumbnail1"=>$data->thumbnail,
 							"fullprice"=>$data->fullprice,
 							"reduceprice"=>$data->reduceprice,
 							"begintime"=>$data->begintime,
@@ -231,6 +239,7 @@ class Common extends CI_Controller {
 					"edittime"=>$time
 				);
 				$users=array();
+
 				if($data->buyerid==0)
 				{
 					$allUsers=$this->getdata->getBuyers(array('result'=>'data'));
@@ -251,6 +260,7 @@ class Common extends CI_Controller {
 						}
 					}
 				}
+
 				
 				foreach ($users as $value) 
 				{
@@ -265,6 +275,7 @@ class Common extends CI_Controller {
 			break;
 		}
 
+			
 		echo json_encode(array("result"=>"success","message"=>"信息写入成功"));
 	}
 	public function modifyInfo(){
@@ -440,6 +451,7 @@ class Common extends CI_Controller {
 				if(isset($data->sid)){
 					$info['sid']=$data->sid;
 				}
+
 				if(isset($data->expressfee)){
 					$info['expressfee']=$data->expressfee;
 				}
@@ -456,6 +468,7 @@ class Common extends CI_Controller {
 					$info['price']=$data->price;
 				}
 				if(isset($data->photo)){
+
 					$info['pic1']=strstr($data->photo,'http')?$data->photo:SERVER_IP.($data->photo);
 				}
 				if(isset($data->isattend)){
@@ -643,6 +656,7 @@ class Common extends CI_Controller {
 		}
 		echo json_encode(array("result"=>"success","message"=>"信息删除成功"));
 	}
+
     //添加一级分类
     public function addCategory()
     {
@@ -652,16 +666,11 @@ class Common extends CI_Controller {
 		switch($data->infoType)
 		{
 	    	case "category":
-	    // 	        if(isset($data->supername))
-	    // 	        {
-					// 	if($this->getdata->isModifyExist('category',$data->id,array('no'=>$data->supername,'type'=>0)))
-					// 	{
-					// 		echo json_encode(array("result"=>"failed","message"=>"该一级分类已经存在，请更换！"));
-					// 		return false;
-					// 	}
-					// 	$info['supername']=$data->supername;
-					// }
-
+	    	        if($this->getdata->isExist('category',array('supername'=>$data->supername,'sid'=>$data->sid)))
+	    	        {
+						echo json_encode(array("result"=>"failed","message"=>"该一级分类已经存在，请更换！"));
+						return false;
+					}
 					$table="category";
 					$time=date("Y-m-d H:i:s");
 					$info=array
@@ -749,6 +758,7 @@ class Common extends CI_Controller {
 	// 	}
 	// 	echo json_encode(array("result"=>"success","message"=>$result));
 	// }
+
 	public function getInfo(){
 		$condition=array();
 		$data=json_decode($_POST['data']);
@@ -799,7 +809,7 @@ class Common extends CI_Controller {
 				$result=$this->getdata->getContent('supermarket',$data->id);
 			break;
 			case 'categories':
-				$result=$this->getdata->getCategories(
+				$result=$this->getdata->getCategory(
 					array(
 						'result'=>'data',
 						'sid'=>$data->id,

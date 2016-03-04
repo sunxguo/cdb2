@@ -28,7 +28,8 @@ function setDivCenter(divId,bk){
 	if(bk) $("#bkDiv").show();
 	$("body").addClass('km-modal-open');
 }
-function removeDiv(divId){
+
+function removeDiv(divId){  
 	$(divId).hide(100);
 	$("#bkDiv").hide(100);
 }
@@ -88,6 +89,7 @@ function getThumb(wraperId){
  * 默认值：callBack="NoCallBack",confirmMsg="NoConfirmation",refresh=false
  */
 function dataHandler(url,postDataObj,confirmMsg,cancelCallBack,successMsg,callBack,refresh,ifShowWait){
+
     //console.log(postDataObj);
     //var ds=JSON.stringify(postDataObj);
     //alert(url);

@@ -13,7 +13,6 @@ function upload($upload_file_name="files"){
 	);
 	//最大文件大小
 	$max_size = 10000000;
-    
 	$save_path = realpath($save_path) . '/';
 
 	//PHP上传失败
@@ -46,10 +45,12 @@ function upload($upload_file_name="files"){
 		}
 		return array("code"=>false,"message"=>$error);
 	}
+
      
 	//有上传文件时
 	//var_dump($_FILES);
 	if (empty($_FILES) === false){
+
 		//原文件名
 		$file_name = $_FILES[$upload_file_name]['name'];
 		//服务器上临时文件名
@@ -114,8 +115,10 @@ function upload($upload_file_name="files"){
 		}
 		@chmod($file_path, 0777);
 		$file_url = $save_url . $new_file_name;
+
 	    //resizeImage($file_path,500,500,$file_path,$file_ext);
 	    // file_put_contents('./a.txt',json_encode($_FILE));
+
 		return array("code"=>true,"message"=>$file_url);
 	}
 }

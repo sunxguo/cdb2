@@ -506,7 +506,6 @@ class Admin extends CI_Controller {
 		if(isset($_GET['keywords'])){
 			$productParameters['keywords']=$_GET['keywords'];
 		}
-
 		$amount=$this->getdata->getProducts($productParameters);
 		$baseUrl='/admin/productlist?placeholder=true';
 		$selectUrl='/admin/productlist?placeholder=true';
@@ -798,7 +797,7 @@ class Admin extends CI_Controller {
 			return false;
 		}
 		$category=$this->getdata->getContent('category',$_GET['id']);
-		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
+		$supermarkets=$this->getdata->getContent('supermarket',$category->sid);
 		$parameters=array(
 			'view'=>'category-edit',
 			'data'=>array('category'=>$category,'supermarkets'=>$supermarkets)
@@ -860,7 +859,6 @@ class Admin extends CI_Controller {
 		);
 		$this->adminCommonHandler($parameters);
 	}
-
 	//活动专区
 	public function activityarealist(){
 		$productParameters=array(
@@ -1062,6 +1060,7 @@ class Admin extends CI_Controller {
 		);
 		$this->adminCommonHandler($parameters);
 	}
-
 	
 }
+
+?>
