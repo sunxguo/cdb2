@@ -694,18 +694,18 @@ function setSupermarketLogo(){
 }
 
 //添加二级分类
-function setSupermarketLogo()
-{
-  if($("#category").val()!='')
-  {
-    showWait();
-    var category = new Object(); 
-    category.infoType = 'category';
-    category.id = $("#category").val();
-    dataHandler('/common/getInfo',categories,null,null,null,getCategorySuccess,false,false);
+// function setSupermarketLogo()
+// {
+//   if($("#category").val()!='')
+//   {
+//     showWait();
+//     var category = new Object(); 
+//     category.infoType = 'category';
+//     category.id = $("#category").val();
+//     dataHandler('/common/getInfo',categories,null,null,null,getCategorySuccess,false,false);
     
-  }
-}
+//   }
+// }
 function getSupermarketSuccess(supermarket){
     $("#thumbnail").attr('src',supermarket.logo);
     closeWait();

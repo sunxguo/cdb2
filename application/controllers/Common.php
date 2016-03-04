@@ -170,7 +170,6 @@ class Common extends CI_Controller {
 							"sid"=>$data->sid,
 							"name"=>$data->name,
 							"content"=>$data->content,
-							"thumbnail1"=>$data->thumbnail,
 							"fullprice"=>$data->fullprice,
 							"reduceprice"=>$data->reduceprice,
 							"begintime"=>$data->begintime,
@@ -179,8 +178,6 @@ class Common extends CI_Controller {
 							"status"=>$data->status
 							);
 					}
-				
-				
 				
 			break;
 			// case "essay":

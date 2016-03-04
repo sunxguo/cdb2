@@ -24,7 +24,8 @@ class DbHandler extends CI_Model{
 	}
 	public function  updateData($condition){
 		if(isset($condition['where'])){
-			foreach($condition['where'] as $key=>$value){
+			foreach($condition['where'] as $key=>$value)
+			{
 				$this->db->where($key,$value);
 			}
 		}
