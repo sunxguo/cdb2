@@ -749,6 +749,8 @@ function saveActivity(isNew,callBack)
 
     dataHandler('/common/'+method+'Info',activity,null,null,null,callBack,false,false);
 }
+
+
 // function uploadThumb1(){
 //     uploadImageAdvance("#uploadImgThumb1",beforeUpload1,successHandler1);
 // }

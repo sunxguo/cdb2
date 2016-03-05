@@ -71,11 +71,9 @@
 				<td><?php echo $coupon->endtime;?></td>
 				<td><?php echo $coupon->addtime;?></td>
 				<?php if($coupon->status=='0'):?>
-					<td class="td-status"><span class="label label-defaunt radius">待发布</span></td>
+					<td class="td-status"><span class="label label-defaunt radius" onclick="updatestatus(this,'<?php echo $coupon->id;?>','<?php echo $coupon->status;?>','<?php echo $coupon->sid;?>')">待发布</span></td>
 				<?php elseif($coupon->status=='1'):?>
-					<td class="td-status"><span class="label label-success radius">进行中</span></td>
-				<?php elseif($coupon->status=='2'):?>
-					<td class="td-status"><span class="label label-success radius">已过期</span></td>
+					<td class="td-status"><span class="label label-success radius" onclick="updatestatus(this,'<?php echo $coupon->id;?>','<?php echo $coupon->status;?>','<?php echo $coupon->sid;?>')">进行中</span></td>
 				<?php endif;?>
 				<td class="td-manage">
 					<?php /*if($seller->status=='0'):?>
@@ -114,7 +112,7 @@ $(function(){
 		  {"orderable":false,"aTargets":[0]}// 制定列不参与排序
 		]
 	});
-	$('.table-sort tbody').on( 'click', 'tr', function () {
+	$('.table-sort tbody').on( 'click', 'tr', function (){
 		if ( $(this).hasClass('selected') ) {
 			$(this).removeClass('selected');
 		}
@@ -205,6 +203,30 @@ function member_del_bulk(){
 	    },false,false);
 	});
 }
+//custom_query
+//修改活动状态
+function updatestatus(obj,id,status,sid)
+{
+	// alert(status);
+     layer.confirm('确认要修改状态吗？',function(index)
+     {
+
+        var activity =new Object();
+        activity.infoType = 'activity';
+        activity.id = id;
+        activity.status = status;
+        activity.sid = sid;
+        dataHandler("/common/updatestatu",activity,null,null,null,function(){
+	    	$("input[name='id']:checked").each(function(){
+		        $(this).parents("tr").remove();
+		    });
+			layer.msg('已修改!',{icon:1,time:1000});
+	    },false,false);
+	    location.reload();
+     });
+}
+
+
 
 </script> 
 </body>

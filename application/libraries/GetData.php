@@ -287,6 +287,24 @@ class GetData{
 		}
 		return $products;
 	}
+
+	//查询在某个超市下活动状态为1 的活动
+	public function getactivitystatus($parameters)
+	{
+		$condition=array(
+			'table'=>'activity',
+			'resule'=>$parameters['result']
+			);
+		if(isset($parameters['sid']))
+		{
+			$condition['where']['sid']=$parameters['sid'];
+		}
+		
+		$condition['where']['status']= '1';
+		$products=$this->getData($condition);
+		return $products;
+
+	}
     //查询参与活动的商品
 	public function getActivitygoods($parameters){
 		$condition=array(
@@ -328,7 +346,7 @@ class GetData{
 		return $products;
 	}
 
-	//查询参与活动的商品
+	//查询今日推荐的商品
 	public function getrecommend($parameters){
 		$condition=array(
 			'table'=>'goods',

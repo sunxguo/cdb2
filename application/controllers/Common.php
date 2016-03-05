@@ -163,21 +163,29 @@ class Common extends CI_Controller {
 			case "activity":
 				    $table="activity"; 
 					$time=date("Y-m-d H:i:s");
-					if($data->name == '1')
+					if($data->status == '1')
 					{
-			
-						$info=array(
-							"sid"=>$data->sid,
-							"name"=>$data->name,
-							"content"=>$data->content,
-							"fullprice"=>$data->fullprice,
-							"reduceprice"=>$data->reduceprice,
-							"begintime"=>$data->begintime,
-							"endtime"=>$data->endtime,
-							"addtime"=>$time,
-							"status"=>$data->status
-							);
+						$where = array('sid'=>$data->sid);
+						$info=array
+						(
+                           "status"=> '0' 
+					    );
+						$result=$this->dbHandler->updateData(array('table'=>$table,'where'=>$where,'data'=>$info));    
 					}
+					
+					$info=array(
+						"sid"=>$data->sid,
+						"name"=>$data->name,
+						"content"=>$data->content,
+						"thumbnail1"=>$data->thumbnail,
+						"fullprice"=>$data->fullprice,
+						"reduceprice"=>$data->reduceprice,
+						"begintime"=>$data->begintime,
+						"endtime"=>$data->endtime,
+						"addtime"=>$time,
+						"status"=>$data->status
+						);
+					
 				
 			break;
 			// case "essay":
@@ -524,6 +532,41 @@ class Common extends CI_Controller {
 		if($result==1) echo json_encode(array("result"=>"success","message"=>"信息修改成功"));
 		else echo json_encode(array("result"=>"failed","message"=>"信息修改失败"));
 	}
+
+    public function updatestatu()
+    {
+        $table="";
+		$data=json_decode($_POST['data']);
+		$info=array();
+		$where=array();
+		switch($data->infoType)
+		{
+			case "activity":
+				$table="activity";
+				$where=array('id'=>$data->id);
+				$info=array();
+				if($data->status == 1)
+				{
+					$info['status']= 0;
+				}
+				else
+				{
+					$wheres = array('sid'=>$data->sid);
+					$infos=array
+					(
+                       "status"=> '0' 
+				    );
+					$update=$this->dbHandler->updateData(array('table'=>$table,'where'=>$wheres,'data'=>$infos));
+					$info['status']= 1;
+				}
+			break;
+		
+    	}
+    	$result=$this->dbHandler->updateData(array('table'=>$table,'where'=>$where,'data'=>$info));
+		if($result==1) echo json_encode(array("result"=>"success","message"=>"信息修改成功"));
+		else echo json_encode(array("result"=>"failed","message"=>"信息修改失败"));	
+	}
+
 	public function deleteInfo(){
 		$condition=array();
 		$data=json_decode($_POST['data']);
