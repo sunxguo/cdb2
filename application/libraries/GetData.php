@@ -972,14 +972,10 @@ class GetData{
 		return $categories;
 	}
 
-	public function checkCode($code)
-	{
-		if(strcasecmp($code,$_SESSION['authcode'])== '0')
-		{
+	public function checkCode($code){
+		if(strcasecmp($code,$_SESSION['authcode'])==0){
 			return true;
-		}
-		else
-		{
+		}else{
 			return false;
 		}
 	}
