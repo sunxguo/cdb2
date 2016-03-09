@@ -398,10 +398,6 @@ function saveCoupon(isNew,callBack){
         alert('使用条件不能小于面值！');
         return false;
     }
-    // if($("#useprice").val()<$("#facevalue").val()){
-    //     alert('使用条件不能小于面值！');
-    //     return false;
-    // }
     showWait();
     var coupon = new Object(); 
     coupon.infoType = 'coupons';
