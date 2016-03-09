@@ -973,6 +973,7 @@ class GetData{
 	}
 
 	public function checkCode($code){
+		var_dump($_SESSION['authcode']);
 		if(strcasecmp($code,$_SESSION['authcode'])==0){
 			return true;
 		}else{
