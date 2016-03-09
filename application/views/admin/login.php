@@ -47,9 +47,6 @@
           <input id="verificationCode" class="input-text size-L" type="text" placeholder="验证码" style="width:150px;">
           <img id="verificationCodeImg" src="" style="height: 40px;vertical-align: top;"> <a id="kanbuq" href="javascript:refreshCode();">看不清，换一张</a> </div>
       </div>
-    <!--   <?php
-      // print_r($_SESSION);
-      ?> -->
     <!--   <div class="row">
         <div class="formControls col-8 col-offset-3">
           <label for="online">
