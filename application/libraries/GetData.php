@@ -936,7 +936,8 @@ class GetData{
 	// 	return $returnData;
 	// }
 //查出不重复的一级分类数据  在添加二级分类时要用
-	public function getCategory($parameters){
+	public function getCategory($parameters)
+	{
 		$condition=array(
 			'table'=>'category',
 			'result'=>$parameters['result'],
@@ -971,10 +972,14 @@ class GetData{
 		return $categories;
 	}
 
-	public function checkCode($code){
-		if(strcasecmp($code,$_SESSION['authcode'])==0){
+	public function checkCode($code)
+	{
+		if(strcasecmp($code,$_SESSION['authcode'])== '0')
+		{
 			return true;
-		}else{
+		}
+		else
+		{
 			return false;
 		}
 	}
