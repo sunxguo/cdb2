@@ -651,6 +651,7 @@ class Admin extends CI_Controller {
 		$adviceParameters['result']='data';
 		// $bannerParameters['limit']=$pageInfo['limit'];
 		$advices=$this->getdata->getAdvices($adviceParameters);
+		//var_dump($advices);
 		$parameters=array(
 			'view'=>'advice-list',
 			'data'=>array('advices'=>$advices,'pageInfo'=>$pageInfo)
