@@ -46,15 +46,60 @@ function checkListStyle(){
     });
     $(".checkall").prop('checked',allChecked);
 }
-function uploadThumb(){
-    uploadImage("#uploadImgThumb",beforeUpload,successHandler);
+//上传第一张图片
+function uploadThumb1(){
+    uploadImage("#uploadImgThumb1",beforeUpload1,successHandler1);
     // console.log();
 }
-function beforeUpload(){
-    $("#thumbnail").attr('src','/assets/images/loading.gif');
+function beforeUpload1(){
+    $("#thumbnail1").attr('src','/assets/images/loading.gif');
 }
-function successHandler(src){
-    $("#thumbnail").attr('src',src);
+function successHandler1(src){
+    $("#thumbnail1").attr('src',src);
+}
+//上传第二张
+function uploadThumb2(){
+    uploadImage("#uploadImgThumb2",beforeUpload2,successHandler2);
+    // console.log();
+}
+function beforeUpload2(){
+    $("#thumbnail2").attr('src','/assets/images/loading.gif');
+}
+function successHandler2(src){
+    $("#thumbnail2").attr('src',src);
+}
+//第三章
+function uploadThumb3(){
+    uploadImage("#uploadImgThumb3",beforeUpload3,successHandler3);
+    // console.log();
+}
+function beforeUpload3(){
+    $("#thumbnail3").attr('src','/assets/images/loading.gif');
+}
+function successHandler3(src){
+    $("#thumbnail3").attr('src',src);
+}
+//第四张
+function uploadThumb4(){
+    uploadImage("#uploadImgThumb4",beforeUpload4,successHandler4);
+    // console.log();
+}
+function beforeUpload4(){
+    $("#thumbnail4").attr('src','/assets/images/loading.gif');
+}
+function successHandler4(src){
+    $("#thumbnail4").attr('src',src);
+}
+//第五张
+function uploadThumb5(){
+    uploadImage("#uploadImgThumb5",beforeUpload5,successHandler5);
+    // console.log();
+}
+function beforeUpload5(){
+    $("#thumbnail5").attr('src','/assets/images/loading.gif');
+}
+function successHandler5(src){
+    $("#thumbnail5").attr('src',src);
 }
 function searchBanner(){
     var extUrl='?placeholder=true';
@@ -470,7 +515,11 @@ function saveProduct(isNew,callBack){
     product.count = $("#count").val();
     product.description = $("#description").val();
     product.expressfee = $("#expressfee").val();
-    product.photo = $("#thumbnail").attr('src');
+    product.photo1 = $("#thumbnail1").attr('src');
+    product.photo2 = $("#thumbnail2").attr('src');
+    product.photo3 = $("#thumbnail3").attr('src');
+    product.photo4 = $("#thumbnail4").attr('src');
+    product.photo5 = $("#thumbnail5").attr('src');
     product.isedit = $("input[name='isedit']:checked").val();
     product.isattend = $("input[name='isattend']:checked").val();
     product.isrecommend = $("input[name='isrecommend']:checked").val();
@@ -503,7 +552,11 @@ function updateProduct(isNew,callBack){
     product.count = $("#count").val();
     product.description = $("#description").val();
     product.expressfee = $("#expressfee").val();
-    product.photo = $("#thumbnail").attr('src');
+    product.photo1 = $("#thumbnail1").attr('src');
+    product.photo2 = $("#thumbnail2").attr('src');
+    product.photo3 = $("#thumbnail3").attr('src');
+    product.photo4 = $("#thumbnail4").attr('src');
+    product.photo5 = $("#thumbnail5").attr('src');
     product.isedit = $("input[name='isedit']:checked").val();
     product.isattend = $("input[name='isattend']:checked").val();
     product.isrecommend = $("input[name='isrecommend']:checked").val();

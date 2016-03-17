@@ -70,7 +70,12 @@ class Common extends CI_Controller {
 					"detailedname"=>$data->detailedname,
 					"barcode"=>$data->barcode,
 					"price"=>$data->price,
-					"pic1"=>strstr($data->photo,'http')?$data->photo:SERVER_IP.($data->photo),
+					"pic1"=>strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1),
+					"pic2"=>strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2),
+					"pic3"=>strstr($data->photo3,'http')?$data->photo3:SERVER_IP.($data->photo3),
+					"pic4"=>strstr($data->photo4,'http')?$data->photo4:SERVER_IP.($data->photo4),
+					"pic5"=>strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5),
+					
 					"isedit"=>$data->isedit,
 					"categoryid"=>$data->categoryid,
 					"description"=>$data->description,
@@ -472,9 +477,25 @@ class Common extends CI_Controller {
 				if(isset($data->price)){
 					$info['price']=$data->price;
 				}
-				if(isset($data->photo)){
+				if(isset($data->photo1)){
 
-					$info['pic1']=strstr($data->photo,'http')?$data->photo:SERVER_IP.($data->photo);
+					$info['pic1']=strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1);
+				}
+				if(isset($data->photo2)){
+
+					$info['pic2']=strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2);
+				}
+				if(isset($data->photo3)){
+
+					$info['pic3']=strstr($data->photo3,'http')?$data->photo3:SERVER_IP.($data->photo3);
+				}
+				if(isset($data->photo4)){
+
+					$info['pic4']=strstr($data->photo4,'http')?$data->photo4:SERVER_IP.($data->photo4);
+				}
+				if(isset($data->photo5)){
+
+					$info['pic5']=strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5);
 				}
 				if(isset($data->isattend)){
 					$info['isattend']=$data->isattend;
@@ -623,7 +644,10 @@ class Common extends CI_Controller {
 				$condition['table']="activity";
 				$condition['where']=array("id"=>$data->id);
 			break;
-			
+			// case 'photo':
+			// 	$condition['table']="goods";
+			// 	$condition['where']=array("id"=>$data->id);
+			// break;
 			
 			// case 'essay':
 			// 	$condition['table']="essay";
