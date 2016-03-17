@@ -68,7 +68,7 @@ function beforeUpload2(){
 function successHandler2(src){
     $("#thumbnail2").attr('src',src);
 }
-//第三章
+//上传第三章
 function uploadThumb3(){
     uploadImage("#uploadImgThumb3",beforeUpload3,successHandler3);
     // console.log();
@@ -79,7 +79,7 @@ function beforeUpload3(){
 function successHandler3(src){
     $("#thumbnail3").attr('src',src);
 }
-//第四张
+//上传第四张
 function uploadThumb4(){
     uploadImage("#uploadImgThumb4",beforeUpload4,successHandler4);
     // console.log();
@@ -90,7 +90,7 @@ function beforeUpload4(){
 function successHandler4(src){
     $("#thumbnail4").attr('src',src);
 }
-//第五张
+//上传第五张
 function uploadThumb5(){
     uploadImage("#uploadImgThumb5",beforeUpload5,successHandler5);
     // console.log();
