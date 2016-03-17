@@ -46,6 +46,18 @@ function checkListStyle(){
     });
     $(".checkall").prop('checked',allChecked);
 }
+
+function uploadThumb(){
+    uploadImage("#uploadImgThumb",beforeUpload,successHandler);
+    // console.log();
+}
+function beforeUpload(){
+    $("#thumbnail").attr('src','/assets/images/loading.gif');
+}
+function successHandler(src){
+    $("#thumbnail").attr('src',src);
+}
+
 //上传第一张图片
 function uploadThumb1(){
     uploadImage("#uploadImgThumb1",beforeUpload1,successHandler1);
@@ -68,7 +80,7 @@ function beforeUpload2(){
 function successHandler2(src){
     $("#thumbnail2").attr('src',src);
 }
-//上传第三章
+//第三章
 function uploadThumb3(){
     uploadImage("#uploadImgThumb3",beforeUpload3,successHandler3);
     // console.log();
