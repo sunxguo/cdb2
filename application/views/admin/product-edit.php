@@ -116,7 +116,7 @@
 
         <span class="btn-upload form-group">
           <a href="javascript:$('#file5').click();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 选择图片</a>
-          <a title="删除图片" href="javascript:;" onclick="photo_del(this,'<?php echo $product->id;?>',pic5)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe642;</i> 删除图片</a>
+         
         </span>
       </div>
       <div class="col-4"> </div>
