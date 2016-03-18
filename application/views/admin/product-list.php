@@ -54,7 +54,7 @@
 				<th width="80">商品名称</th>
 				<th width="80">条形码</th>
 				<th width="80">原价</th>
-				<th width="80">实际价格</th>
+				<th width="80">优惠价格</th>
 				<th width="80">运费</th>
 				<th width="80">库存</th>
 				<th width="80">可编辑</th>

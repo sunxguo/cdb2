@@ -66,7 +66,7 @@
       <div class="col-4"> </div>
     </div>
     <div class="row cl">
-      <label class="form-label col-3"><span class="c-red">*</span>实际价格：</label>
+      <label class="form-label col-3"><span class="c-red">*</span>优惠价格：</label>
       <div class="formControls col-5">
         <input type="text" class="input-text" value="<?php echo $product->price;?>" placeholder="" id="price" name="price" datatype="*2-16" nullmsg="实际价格不能为空">
       </div>
