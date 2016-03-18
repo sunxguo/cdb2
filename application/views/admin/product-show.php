@@ -4,7 +4,7 @@
 <div class="cl pd-20" style=" background-color:#5bacb6">
   <img class="avatar size-XL l" src="<?php echo $product->pic1;?>">
   <dl style="margin-left:80px; color:#fff">
-    <dt><span class="f-18"><?php echo $product->detailedname;?></span> <span class="pl-10 f-12">价格：￥ <?php echo $product->price;?></span></dt>
+    <dt><span class="f-18"><?php echo $product->detailedname;?></span><br/> <span class="pl-10 f-12">原价：￥ <?php echo $product->actualprice;?></span><br/><span class="pl-10 f-12" >实价：￥ <?php echo $product->price;?></span></dt>
     <!-- <dd class="pt-10 f-12" style="margin-left:0">这家伙很懒，什么也没有留下</dd> -->
     <dd class="pt-10 f-12" style="margin-left:0">超市：<?php echo $supermarket->name.' - '.$supermarket->sname;?></dd>
   </dl>

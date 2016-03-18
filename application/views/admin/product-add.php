@@ -58,15 +58,23 @@
       </div>
       <div class="col-4"> </div>
     </div>
-
-
+    
     <div class="row cl">
-      <label class="form-label col-3"><span class="c-red">*</span>价格：</label>
+      <label class="form-label col-3"><span class="c-red">*</span>原价：</label>
       <div class="formControls col-5">
-        <input type="text" class="input-text" value="" placeholder="" id="price" name="price" datatype="*1-16" nullmsg="价格不能为空">
+        <input type="text" class="input-text" value="" placeholder="" id="actualprice" name="actualprice" datatype="*1-16" nullmsg="原价价格不能为空">
       </div>
       <div class="col-4"> </div>
     </div>
+
+    <div class="row cl">
+      <label class="form-label col-3"><span class="c-red">*</span>实际价格：</label>
+      <div class="formControls col-5">
+        <input type="text" class="input-text" value="" placeholder="" id="price" name="price" datatype="*1-16" nullmsg="优惠价格不能为空">
+      </div>
+      <div class="col-4"> </div>
+    </div>
+    
 
     <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>商品图片1：</label>
@@ -189,7 +197,7 @@
       <div class="col-4"> </div>
     </div>
 
-    <div class="row cl">
+    <!-- <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>是否可编辑：</label>
       <div class="formControls col-5 skin-minimal">
         <div class="radio-box">
@@ -202,7 +210,7 @@
         </div>
       </div>
       <div class="col-4"> </div>
-    </div>
+    </div> -->
 
     <div class="row cl">
       <div class="col-9 col-offset-3">

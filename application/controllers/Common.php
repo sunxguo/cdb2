@@ -70,13 +70,14 @@ class Common extends CI_Controller {
 					"detailedname"=>$data->detailedname,
 					"barcode"=>$data->barcode,
 					"price"=>$data->price,
+					"actualprice"=>$data->actualprice,
 					"pic1"=>strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1),
 					"pic2"=>strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2),
 					"pic3"=>strstr($data->photo3,'http')?$data->photo3:SERVER_IP.($data->photo3),
 					"pic4"=>strstr($data->photo4,'http')?$data->photo4:SERVER_IP.($data->photo4),
 					"pic5"=>strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5),
 					
-					"isedit"=>$data->isedit,
+					// "isedit"=>$data->isedit,
 					"categoryid"=>$data->categoryid,
 					"description"=>$data->description,
 					"expressfee"=>$data->expressfee,
@@ -476,6 +477,10 @@ class Common extends CI_Controller {
 				if(isset($data->detailedname)){
 					$info['detailedname']=$data->detailedname;
 				}
+				
+				if(isset($data->actualprice)){
+					$info['actualprice']=$data->actualprice;
+				}
 				if(isset($data->price)){
 					$info['price']=$data->price;
 				}
@@ -505,9 +510,9 @@ class Common extends CI_Controller {
 				if(isset($data->isrecommend)){
 					$info['isrecommend']=$data->isrecommend;
 				}
-				if(isset($data->isedit)){
-					$info['isedit']=$data->isedit;
-				}
+				// if(isset($data->isedit)){
+				// 	$info['isedit']=$data->isedit;
+				// }
 				if(isset($data->categoryid)){
 					$info['categoryid']=$data->categoryid;
 				}

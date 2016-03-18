@@ -524,6 +524,7 @@ function saveProduct(isNew,callBack){
     product.detailedname = $("#detailedname").val();
     product.barcode = $("#barcode").val();
     product.price = $("#price").val();
+    product.actualprice = $("#actualprice").val();
     product.count = $("#count").val();
     product.description = $("#description").val();
     product.expressfee = $("#expressfee").val();
@@ -532,14 +533,14 @@ function saveProduct(isNew,callBack){
     product.photo3 = $("#thumbnail3").attr('src');
     product.photo4 = $("#thumbnail4").attr('src');
     product.photo5 = $("#thumbnail5").attr('src');
-    product.isedit = $("input[name='isedit']:checked").val();
+    // product.isedit = $("input[name='isedit']:checked").val();
     product.isattend = $("input[name='isattend']:checked").val();
     product.isrecommend = $("input[name='isrecommend']:checked").val();
     product.detailedname = $("#detailedname").val();
     product.barcode = $("#barcode").val();
     product.price = $("#price").val();
     product.photo = $("#thumbnail").attr('src');
-    product.isedit = $("input[name='isedit']:checked").val();
+    // product.isedit = $("input[name='isedit']:checked").val();
     product.status = $("input[name='status']:checked").val();
     var method='add';
     if(!isNew){
@@ -561,6 +562,7 @@ function updateProduct(isNew,callBack){
     product.detailedname = $("#detailedname").val();
     product.barcode = $("#barcode").val();
     product.price = $("#price").val();
+    product.actualprice = $("#actualprice").val();
     product.count = $("#count").val();
     product.description = $("#description").val();
     product.expressfee = $("#expressfee").val();
@@ -569,7 +571,7 @@ function updateProduct(isNew,callBack){
     product.photo3 = $("#thumbnail3").attr('src');
     product.photo4 = $("#thumbnail4").attr('src');
     product.photo5 = $("#thumbnail5").attr('src');
-    product.isedit = $("input[name='isedit']:checked").val();
+    // product.isedit = $("input[name='isedit']:checked").val();
     product.isattend = $("input[name='isattend']:checked").val();
     product.isrecommend = $("input[name='isrecommend']:checked").val();
     product.status = $("input[name='status']:checked").val();

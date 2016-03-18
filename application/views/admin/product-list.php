@@ -53,7 +53,8 @@
 				<th width="80">分类</th>
 				<th width="80">商品名称</th>
 				<th width="80">条形码</th>
-				<th width="80">价格</th>
+				<th width="80">原价</th>
+				<th width="80">实际价格</th>
 				<th width="80">运费</th>
 				<th width="80">库存</th>
 				<th width="80">可编辑</th>
@@ -71,6 +72,7 @@
 				<td><?php echo $product->category->name;?></td>
 				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('<?php echo $product->detailedname;?>','/admin/productshow','<?php echo $product->id;?>','360','380')"><?php echo $product->detailedname;?></u></td>
 				<td><?php echo $product->barcode;?></td>
+				<td>￥ <?php echo $product->actualprice;?></td>
 				<td>￥ <?php echo $product->price;?></td>
 				<td>￥ <?php echo $product->expressfee;?></td>
 				<td><?php echo $product->count;?></td>
