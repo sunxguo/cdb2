@@ -45,7 +45,9 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="id" value=""></th>
 				<th width="80">超市</th>
-				<th width="60">简介图</th>
+				<th width="60">超市活动图1</th>
+				<th width="60">超市活动图2</th>
+				<th width="60">超市详情图</th>
 				<th width="50">优惠条件</th>
 				<th width="50">优惠金额</th>
 				<th width="150">活动详情</th>
@@ -63,6 +65,8 @@
 				<td><input type="checkbox" value="<?php echo $coupon->id;?>" name="id"></td>
 				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('<?php echo $coupon->supermarket->name.' - '.$coupon->supermarket->sname;?>','/admin/supermarketshow','<?php echo $coupon->supermarket->id;?>','360','440')"><?php echo $coupon->supermarket->name.' - '.$coupon->supermarket->sname;?></u></td>
 				<td><img src="<?php echo $coupon->thumbnail1;?>" width="50"></td>
+				<td><img src="<?php echo $coupon->thumbnail2;?>" width="50"></td>
+				<td><img src="<?php echo $coupon->thumbnail3;?>" width="50"></td>
 				<!-- <td><?php echo $coupon->name;?></td> -->
 				<td><?php echo $coupon->fullprice;?></td>
 				<td><?php echo $coupon->reduceprice;?></td>

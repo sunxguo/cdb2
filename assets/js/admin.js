@@ -791,7 +791,9 @@ function saveActivity(isNew,callBack)
     var activity = new Object(); 
     activity.infoType = 'activity';
     activity.sid = $("#subsupermarket").val();
-    activity.thumbnail = $("#thumbnail").attr('src');
+    activity.thumbnail1 = $("#thumbnail1").attr('src');
+    activity.thumbnail2 = $("#thumbnail2").attr('src');
+    activity.thumbnail3 = $("#thumbnail3").attr('src');
     activity.name = '1';
     activity.fullprice = $("#fullprice").val(); //满减活动的满足条件
     activity.reduceprice = $("#reduceprice").val(); // 满减活动的减免金额
