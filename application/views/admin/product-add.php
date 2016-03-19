@@ -154,11 +154,11 @@
       <label class="form-label col-3"><span class="c-red">*</span>是否参加活动：</label>
       <div class="formControls col-5 skin-minimal">
         <div class="radio-box">
-          <input type="radio" id="isattend-1" name="isattend" value="0" datatype="*" checked="checked">
+          <input type="radio" id="isattend-1" name="isattend" value="0" datatype="*" >
           <label for="isedit-1">否</label>
         </div>
         <div class="radio-box">
-          <input type="radio" id="isattend-2" name="isattend" value="1">
+          <input type="radio" id="isattend-2" name="isattend" value="1" checked="checked">
           <label for="isedit-2">是</label>
         </div>
         <div span class="c-red">*若选择参加活动，请在活动专区查看商品信息</div>

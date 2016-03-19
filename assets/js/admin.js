@@ -783,6 +783,27 @@ function saveActivity(isNew,callBack)
         alert('优惠金额不能小于优惠条件！');
         return false;
     }
+    // var exp = null;
+    // if (!exp && typeof(exp) != $("#thumbnail1").attr('src') && exp!=0)
+    // {
+    //     alert('超市活动图必须添加');
+    //     return false;
+    // }
+    var value="";
+    var photo1=$("#thumbnail1").attr('src');
+    var photo2=$("#thumbnail2").attr('src');
+    var photo3=$("#thumbnail3").attr('src');
+    if(photo1 == value || photo2 == value) 
+    {
+        alert('超市活动图必须全部添加');
+        return false;
+    }
+   
+    if(photo3 == value) 
+    {
+        alert('活动详情图必须添加');
+        return false;
+    }
 
     // if($("#useprice").val()<$("#facevalue").val()){
     //     alert('使用条件不能小于面值！');

@@ -69,7 +69,7 @@
     </div> -->
     <div class="row cl">
       <label class="form-label col-3"><span class="c-red">*</span>超市活动图1：</label>
-      <div class="formControls col-5">
+      <div class="formControls col-5" >
         <img src="" id="thumbnail1" style="max-width:90%;max-height:100px;">
         <span class="btn-upload form-group">
           <a href="javascript:$('#file1').click();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 选择图片</a>

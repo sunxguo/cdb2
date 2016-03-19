@@ -807,6 +807,7 @@ class GetData{
 		}
 		return $categorys;
 	}
+	
 	//查出所有的插队宝用户
 	public function getAllBuyer($withSub=false,$asArray=false)
 	{

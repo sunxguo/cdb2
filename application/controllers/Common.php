@@ -64,6 +64,8 @@ class Common extends CI_Controller {
 			case "product":
 				$table="goods";
 				$time=date("Y-m-d H:i:s");
+				
+				$pcategory=$this->getdata->getpcategory($productParameters);
 				$info=array(
 					"sid"=>$data->sid,
 					"name"=>$data->name,
@@ -78,6 +80,7 @@ class Common extends CI_Controller {
 					"pic5"=>strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5),
 					
 					// "isedit"=>$data->isedit,
+					
 					"categoryid"=>$data->categoryid,
 					"description"=>$data->description,
 					"expressfee"=>$data->expressfee,
