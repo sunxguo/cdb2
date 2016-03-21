@@ -41,7 +41,7 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="id" value=""></th>
 				<th width="80">订单号</th>
-				<th width="30">商品</th>
+				<th width="60">商品</th>
 				<th width="80">超市</th>
 				<th width="50">卖家账号</th>
 				<th width="50">买家账号</th>
