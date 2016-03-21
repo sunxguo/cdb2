@@ -105,7 +105,13 @@
 				<!-- <td><?php echo $order->expressway=='0'?'物流':'自提';?></td>
 				<td><?php echo $order->expresstime;?></td> -->
 				<td><?php echo '￥'.$order->expressfee;?></td>
-				<td><?php echo '￥'.$order->discount;?></td>
+				<td>
+				<?php if(!empty($order->discount)) ?>
+					<?php echo '￥'.$order->discount;?>
+				<?php else:?>
+					￥0
+				<?php endif;?>	
+			    </td>
 				<!-- <td><?php echo $order->couponid;?></td> -->
 				<td><?php echo '￥'.$order->goodsprice;?></td>
 				<!-- <td><?php echo $order->totalprice;?></td> -->
