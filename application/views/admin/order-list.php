@@ -106,7 +106,7 @@
 				<td><?php echo $order->expresstime;?></td> -->
 				<td><?php echo '￥'.$order->expressfee;?></td>
 				<td>
-				<?php if(!empty($order->discount)) ?>
+				<?php if(!empty($order->discount)) :?>
 					<?php echo '￥'.$order->discount;?>
 				<?php else:?>
 					￥0
