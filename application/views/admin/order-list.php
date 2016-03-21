@@ -60,7 +60,7 @@
 				<!-- <th width="30">买家删除</th>
 				<th width="30">卖家删除</th>
 				<th width="30">物流删除</th> -->
-				<th width="80">下单时间</th>
+				<th width="150">下单时间</th>
 				<th width="30">状态</th>
 				<th width="20">操作</th>
 			</tr>
@@ -76,7 +76,7 @@
 						<?php if(isset($detail->product->pic1)):?>
 							<img src="<?php echo $detail->product->pic1;?>" title="<?php echo $detail->product->name;?>" alt="<?php echo $detail->product->name;?>" width="30"> × <?php echo $detail->count;?>
 						<?php else:?>
-						    该商品不存在
+						    商品不存在
 						<?php endif;?>	
 					<?php endforeach;?>
 					
@@ -134,6 +134,8 @@
 				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='-1'):?>
 				<td class="td-status"><?php echo $order->status_zn?></span></td>
+				<?php elseif($order->status=='9'):?>
+				<td class="td-status"><?php echo $order->status_zn (echo $order->cancelreason)?></span></td>
 				<?php else:?>
 				<td class="td-status"><?php echo $order->status_zn?></td>
 				<?php endif;?>
