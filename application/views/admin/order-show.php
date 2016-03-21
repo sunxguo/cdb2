@@ -19,11 +19,7 @@
       <tr>
         <th class="text-r" width="150">超市账号：</th>
         <td>
-        <?php if($order->seller->wokno != ''):?>
           <?php echo $order->seller->wokno;?>
-        <?php else:?>
-          该账号不存在
-        <?php endif;?>
         </td>
       </tr>
       <tr>

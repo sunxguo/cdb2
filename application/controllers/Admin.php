@@ -968,7 +968,15 @@ class Admin extends CI_Controller {
 		$order=$this->getdata->getContentAdvance('order',array('orderno'=>$_GET['id']));
 		$order->supermarket=$this->getdata->getContent('supermarket',$order->sid);
 		$order->buyer=$this->getdata->getContent('buyer',$order->buyerid);
-		$order->seller=$this->getdata->getContent('seller',$order->sellerid);
+		if($order->sellerid == '')
+		{
+			$order->seller->name == '该账号不存在！';
+		}
+		else
+		{
+			$order->seller=$this->getdata->getContent('seller',$order->sellerid);
+		}
+		
 		$order->address=$this->getdata->getContent('address',$order->addressid);
 		$order->coupon=$this->getdata->getContent('coupon',$order->couponid);
 		$order->details=$this->getdata->getOrderDetail($order->orderno);
