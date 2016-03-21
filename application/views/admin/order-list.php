@@ -75,9 +75,9 @@
 
 				<?php foreach($order->details as $detail):?>
 						<?php if(isset($detail->product->name)):?>
-							<img src="<?php echo $detail->product->pic1;?>" title="<?php echo $detail->product->name;?>" alt="<?php echo $detail->product->name;?>" width="30"> × <?php echo $detail->count;?>
+							<img src="<?php echo $detail->product->pic1;?>" title="<?php echo $detail->product->name;?>" alt="<?php echo $detail->product->name;?>" width="30"> × <?php echo $detail->count;?><br/>
 						<?php else:?>
-						    商品不存在
+						    商品不存在<br/>
 						<?php endif;?>	
 					<?php endforeach;?>
 				</td>
