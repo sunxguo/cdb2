@@ -71,13 +71,11 @@
 				<td><input type="checkbox" value="<?php echo $order->id;?>" name="id"></td>
 				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('<?php echo $order->orderno;?>','/admin/ordershow','<?php echo $order->orderno;?>','360','440')"><?php echo $order->orderno;?></u></td>
 				<td>
-				    <?php if(isset($order->details)):?>
+				   
 					<?php foreach($order->details as $detail):?>
 					<img src="<?php echo $detail->product->pic1;?>" title="<?php echo $detail->product->name;?>" alt="<?php echo $detail->product->name;?>" width="30"> × <?php echo $detail->count;?>
 					<?php endforeach;?>
-					<?php else:?>
-					商品不存在
-					<?php endif;?>
+					
 				</td>
 				<td><?php echo $order->supermarket->name.' - '.$order->supermarket->sname;?></td>
 				<td>
