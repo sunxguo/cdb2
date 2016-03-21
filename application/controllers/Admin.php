@@ -561,7 +561,6 @@ class Admin extends CI_Controller {
 		$orderParameters['result']='data';
 		// $bannerParameters['limit']=$pageInfo['limit'];
 		$orders=$this->getdata->getOrders($orderParameters);
-		if($orders->)
 		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
 		$parameters=array(
 			'view'=>'order-list',
