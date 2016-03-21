@@ -561,10 +561,7 @@ class Admin extends CI_Controller {
 		$orderParameters['result']='data';
 		// $bannerParameters['limit']=$pageInfo['limit'];
 		$orders=$this->getdata->getOrders($orderParameters);
-		// if($orders->$detail == '')
-		// {
-  //           $orders->$detail=>'该商品已经不存在';
-		// }
+		if($orders->)
 		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
 		$parameters=array(
 			'view'=>'order-list',

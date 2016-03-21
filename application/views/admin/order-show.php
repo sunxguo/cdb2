@@ -13,17 +13,17 @@
   <table class="table">
     <tbody>
       <tr>
-        <th class="text-r" width="150">超市：</th>
+        <th class="text-r" width="80">超市：</th>
         <td><?php echo $order->supermarket->name.' - '.$order->supermarket->sname;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">超市账号：</th>
+        <th class="text-r" width="80">超市账号：</th>
         <td>
           <?php echo $order->seller->name;?>
         </td>
       </tr>
       <tr>
-        <th class="text-r" width="150">商品：</th>  
+        <th class="text-r" width="80">商品：</th>
         <td>
           <?php foreach($order->details as $detail):?>
           <img src="<?php echo $detail->product->pic1;?>" title="<?php echo $detail->product->detailedname;?>" alt="<?php echo $detail->product->detailedname;?>" width="30"> <?php echo $detail->product->detailedname;?> × <?php echo $detail->count;?>
@@ -31,63 +31,63 @@
         </td>
       </tr>
       <tr>
-        <th class="text-r" width="150">收货地址：</th>
+        <th class="text-r">收货地址：</th>
         <td><?php echo isset($order->address->province)?$order->address->province.$order->address->city.$order->address->area.$order->address->detailedarea.'<br>'.$order->address->name.' 电话'.$order->address->phone:'';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">总件数：</th>
+        <th class="text-r">总件数：</th>
         <td><?php echo $order->count;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">配送方式：</th>
+        <th class="text-r">配送方式：</th>
         <td><?php echo $order->expressway=='0'?'物流':'自提';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">配送时间：</th>
+        <th class="text-r" >配送时间：</th>
         <td><?php echo $order->expresstime;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">配送费：</th>
+        <th class="text-r" >配送费：</th>
         <td><?php echo '￥'.$order->expressfee;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">优惠价：</th>
+        <th class="text-r" >优惠价：</th>
         <td><?php echo '￥'.$order->discount;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">优惠券：</th>
+        <th class="text-r" >优惠券：</th>
         <td><?php echo $order->couponid;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">总价：</th>
+        <th class="text-r" >总价：</th>
         <td><?php echo '￥'.$order->goodsprice;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">实际支付：</th>
+        <th class="text-r" >实际支付：</th>
         <td><?php echo '￥'.$order->actualpay;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">支付方式：</th>
+        <th class="text-r">支付方式：</th>
         <td><?php echo $order->paymentmethod=='0'?'支付宝':'微信';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">是否分享：</th>
+        <th class="text-r">是否分享：</th>
         <td><?php echo $order->isshared=='1'?'是':'否';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">用户删除：</th>
+        <th class="text-r">用户删除：</th>
         <td><?php echo $order->buyerdel=='1'?'是':'否';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">超市删除：</th>
+        <th class="text-r">超市删除：</th>
         <td><?php echo $order->sellerdel=='1'?'是':'否';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">物流删除：</th>
+        <th class="text-r">物流删除：</th>
         <td><?php echo $order->deliverydel=='1'?'是':'否';?></td>
       </tr>
       <tr>
-        <th class="text-r" width="150">状态：</th>
+        <th class="text-r">状态：</th>
 
         <?php if($order->status=='0'):?>
         <td class="td-status"><span class="label label-danger radius"><?php echo $order->status_zn?></span></td>
