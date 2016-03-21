@@ -19,7 +19,7 @@
       <tr>
         <th class="text-r" width="150">超市账号：</th>
         <td>
-          <?php echo $order->seller->wokno;?>
+          <?php echo $order->seller->name;?>
         </td>
       </tr>
       <tr>
