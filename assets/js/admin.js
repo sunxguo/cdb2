@@ -450,6 +450,19 @@ function saveCoupon(isNew,callBack){
     // alert(useprice);
     var facevalue = $("#facevalue").val();
     // alert(facevalue);
+    var value="";
+    var begintime = $("#datemin").val();
+    var endtime = $("#datemax").val();
+    if(begintime == value) 
+    {
+        alert('优惠券起始时间必须添加');
+        return false;
+    }
+    if(endtime == value) 
+    {
+        alert('优惠券截止时间必须添加');
+        return false;
+    }
     if( parseInt(useprice) < parseInt(facevalue))
     {
         alert('使用条件不能小于面值！');
@@ -791,6 +804,8 @@ function saveActivity(isNew,callBack)
     var photo1=$("#thumbnail1").attr('src');
     var photo2=$("#thumbnail2").attr('src');
     var photo3=$("#thumbnail3").attr('src');
+    var begintime = $("#datemin").val();
+    var endtime = $("#datemax").val();
     if(photo1 == value || photo2 == value) 
     {
         alert('超市活动图必须全部添加');
@@ -800,6 +815,16 @@ function saveActivity(isNew,callBack)
     if(photo3 == value) 
     {
         alert('活动详情图必须添加');
+        return false;
+    }
+    if(begintime == value) 
+    {
+        alert('优惠活动起始时间必须添加');
+        return false;
+    }
+    if(endtime == value) 
+    {
+        alert('优惠活动截止时间必须添加');
         return false;
     }
 

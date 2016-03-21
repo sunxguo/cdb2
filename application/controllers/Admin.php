@@ -552,6 +552,7 @@ class Admin extends CI_Controller {
 			$orderParameters['keywords']=$_GET['keywords'];
 		}
 		$amount=$this->getdata->getOrders($orderParameters);
+
 		$baseUrl='/admin/orderlist?placeholder=true';
 		$selectUrl='/admin/orderlist?placeholder=true';
 		$currentPage=isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
@@ -560,6 +561,10 @@ class Admin extends CI_Controller {
 		$orderParameters['result']='data';
 		// $bannerParameters['limit']=$pageInfo['limit'];
 		$orders=$this->getdata->getOrders($orderParameters);
+		// if($orders->$detail == '')
+		// {
+  //           $orders->$detail=>'该商品已经不存在';
+		// }
 		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
 		$parameters=array(
 			'view'=>'order-list',

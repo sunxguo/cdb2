@@ -21,10 +21,10 @@
         <td><?php echo $order->seller->name;?></td>
       </tr>
       <tr>
-        <th class="text-r" width="80">商品：</th>
+        <th class="text-r" width="80">商品：</th>  
         <td>
           <?php foreach($order->details as $detail):?>
-          <img src="<?php echo $detail->product->photo;?>" title="<?php echo $detail->product->name;?>" alt="<?php echo $detail->product->name;?>" width="30"> <?php echo $detail->product->name;?> × <?php echo $detail->count;?>
+          <img src="<?php echo $detail->product->pic1;?>" title="<?php echo $detail->product->detailedname;?>" alt="<?php echo $detail->product->name;?>" width="30"> <?php echo $detail->product->name;?> × <?php echo $detail->count;?>
           <?php endforeach;?>
         </td>
       </tr>
