@@ -135,7 +135,7 @@
 				<?php elseif($order->status=='-1'):?>
 				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php elseif($order->status=='9'):?>
-				<td class="td-status"><?php echo $order->status_zn ($order->cancelreason)?></span></td>
+				<td class="td-status"><?php echo $order->status_zn?></span></td>
 				<?php else:?>
 				<td class="td-status"><?php echo $order->status_zn?></td>
 				<?php endif;?>
