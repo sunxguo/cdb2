@@ -277,9 +277,11 @@ class GetData{
 			}
 		}
 
-		$condition['where']['isattend']= '0' ;
-		$condition['where']['status'] = '0';
+		$condition['where']['isattend'] = '0' ;
 
+		$condition['where']['status <='] ='1';
+
+	    
 		$products=$this->getData($condition);
 		if($parameters['result']=='data'){
 			foreach ($products as $key => $value) {
@@ -337,7 +339,7 @@ class GetData{
 			}
 		}
         $condition['where']['isattend']= '1';
-
+		$condition['where']['status <=']= '1';
 		$products=$this->getData($condition);
 		if($parameters['result']=='data'){
 			foreach ($products as $key => $value) {
@@ -377,7 +379,9 @@ class GetData{
 				$condition['where']['addtime <=']=$parameters['time']['end'];
 			}
 		}
-        $condition['where']['isrecommend']= '1';
+        $condition['where']['isrecommend'] = '1';
+         $condition['where']['status <='] = '1';
+
 		$products=$this->getData($condition);
 		if($parameters['result']=='data'){
 			foreach ($products as $key => $value) {
