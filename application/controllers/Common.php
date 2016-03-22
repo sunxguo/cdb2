@@ -593,6 +593,27 @@ class Common extends CI_Controller {
 		else echo json_encode(array("result"=>"failed","message"=>"信息修改失败"));	
 	}
 
+	public function updateproducts()
+    {
+        $table="";
+		$data=json_decode($_POST['data']);
+		$info=array();
+		$where=array();
+		switch($data->infoType)
+		{
+			case "product":
+				$table="goods";
+				$where=array('id'=>$data->id);
+				$info=array();
+				$info['status']= 2;
+				$result=$this->dbHandler->updateData(array('table'=>$table,'where'=>$where,'data'=>$info));
+			break;
+		
+    	}
+		if($result==1) echo json_encode(array("result"=>"success","message"=>"信息修改成功"));
+		else echo json_encode(array("result"=>"failed","message"=>"信息修改失败"));	
+	}
+
 	public function deleteInfo(){
 		$condition=array();
 		$data=json_decode($_POST['data']);
@@ -720,8 +741,26 @@ class Common extends CI_Controller {
 				$where="id";
 			break;
 		}
-		foreach ($data->idArray as $value) {
+		foreach ($data->idArray as $value){
 			$result=$this->dbHandler->deleteData(array('table'=>$table,'where'=>array($where=>$value)));
+		}
+		echo json_encode(array("result"=>"success","message"=>"信息删除成功"));
+	}
+
+	public function updateBulkInfo(){
+		$condition=array();
+		$data=json_decode($_POST['data']);
+		switch($data->infoType)
+		{
+			case 'products':
+					$table="goods";
+					$where="id";
+					$info=array();
+					$info['status']= 2;		
+			break;
+		}
+		foreach ($data->idArray as $value){
+			$result=$this->dbHandler->updateData(array('table'=>$table,'where'=>array($where=>$value),'data'=>$info));
 		}
 		echo json_encode(array("result"=>"success","message"=>"信息删除成功"));
 	}

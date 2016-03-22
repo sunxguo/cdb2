@@ -506,6 +506,9 @@ class Admin extends CI_Controller {
 		if(isset($_GET['keywords'])){
 			$productParameters['keywords']=$_GET['keywords'];
 		}
+
+		
+
 		$amount=$this->getdata->getProducts($productParameters);
 		$baseUrl='/admin/productlist?placeholder=true';
 		$selectUrl='/admin/productlist?placeholder=true';

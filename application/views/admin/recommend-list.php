@@ -186,7 +186,7 @@ function member_del(obj,id){
 		var product = new Object(); 
 	    product.infoType = 'product';
 	    product.id = id;
-		dataHandler('/common/deleteInfo',product,null,null,null,function(){
+		dataHandler('/common/updateproducts',product,null,null,null,function(){
 			$(obj).parents("tr").remove();
 			layer.msg('已删除!',{icon:1,time:1000});
 		},false,false);
@@ -206,7 +206,7 @@ function member_del_bulk(){
 	    var products = new Object();
 	    products.infoType = 'products';
 	    products.idArray = memberArray;
-	    dataHandler("/common/deleteBulkInfo",products,null,null,null,function(){
+	    dataHandler("/common/updateBulkInfo",products,null,null,null,function(){
 	    	$("input[name='id']:checked").each(function(){
 		        $(this).parents("tr").remove();
 		    });

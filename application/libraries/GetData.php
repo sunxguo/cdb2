@@ -278,6 +278,8 @@ class GetData{
 		}
 
 		$condition['where']['isattend']= '0' ;
+		$condition['where']['status'] = '0';
+
 		$products=$this->getData($condition);
 		if($parameters['result']=='data'){
 			foreach ($products as $key => $value) {
