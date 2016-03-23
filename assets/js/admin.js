@@ -743,7 +743,7 @@ function getSelectCategories()
 {
     showWait();
     var supermarket = new Object(); 
-    supermarket.infoType = 'categories';
+    supermarket.infoType = 'supcategories';
     supermarket.id = $("#supermarket").val();
     dataHandler('/common/getInfo',supermarket,null,null,null,getSelectCategoriesSuccess,false,false);
 }
