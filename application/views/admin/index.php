@@ -236,6 +236,14 @@ function product_add(title,url){
 function member_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
+
+	$('#productajax').click(function() {
+		$.ajax({
+			url: '/admin/productlist',
+			type:'GET',
+			async:false
+		});
+	});
 </script>
 </body>
 </html>

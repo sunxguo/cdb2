@@ -920,8 +920,16 @@ class Common extends CI_Controller {
 				$result=$this->getdata->getCategory(
 					array(
 						'result'=>'data',
-						'sid'=>$data->id,
-						'orderBy'=>array('order'=>'ASC')
+						'sid'=>$data->id		
+					)
+				);
+			break;
+
+			case 'supcategories':
+				$result=$this->getdata->getSupCategory(
+					array(
+						'result'=>'data',
+						'sid'=>$data->id		
 					)
 				);
 			break;

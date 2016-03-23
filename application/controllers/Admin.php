@@ -756,7 +756,6 @@ class Admin extends CI_Controller {
 	public function categorylist(){
 		$categoryParameters=array(
 			'result'=>'count',
-			'limit'=>array('limit'=>10,'offset'=>0),
 			'orderBy'=>array('addtime'=>'DESC')
 		);
 		if(isset($_GET['sid'])){

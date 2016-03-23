@@ -883,7 +883,7 @@ class GetData{
 		$condition=array(
 			'table'=>'category',
 			'result'=>$parameters['result']
-			// 'group_by'=>'supername'
+			
 		);
 		if(isset($parameters['sid'])){
 			$condition['where']['sid']=$parameters['sid'];
@@ -902,9 +902,7 @@ class GetData{
 				$condition['where']['addtime <=']=$parameters['time']['end'];
 			}
 		}
-		if(isset($parameters['orderBy'])){
-			$condition['order_by']=$parameters['orderBy'];
-		}
+		
 		$categories=$this->getData($condition);
 		if($parameters['result']=='data'){
 			foreach ($categories as $key => $value) {
@@ -950,6 +948,7 @@ class GetData{
 			'table'=>'category',
 			'result'=>$parameters['result'],
 			'group_by'=>'supername'
+			
 		);
 		if(isset($parameters['sid'])){
 			$condition['where']['sid']=$parameters['sid'];
@@ -968,8 +967,39 @@ class GetData{
 				$condition['where']['addtime <=']=$parameters['time']['end'];
 			}
 		}
-		if(isset($parameters['orderBy'])){
-			$condition['order_by']=$parameters['orderBy'];
+		$categories=$this->getData($condition);
+		if($parameters['result']=='data'){
+			foreach ($categories as $key => $value) {
+				$value->supermarket=$this->getContent('supermarket',$value->sid);
+			}
+		}
+		return $categories;
+	}
+
+	//查出二级分类
+	public function getSupCategory($parameters)
+	{
+		$condition=array(
+			'table'=>'category',
+			'result'=>$parameters['result']
+			
+		);
+		if(isset($parameters['sid'])){
+			$condition['where']['sid']=$parameters['sid'];
+		}
+		if(isset($parameters['keywords'])){
+			$condition['or_like_bracket']['name']=$parameters['keywords'];
+		}
+		if(isset($parameters['limit'])){
+			$condition['limit']=$parameters['limit'];
+		}
+		if(isset($parameters['time'])){
+			if(isset($parameters['time']['begin'])){
+				$condition['where']['addtime >=']=$parameters['time']['begin'];
+			}
+			if(isset($parameters['time']['end'])){
+				$condition['where']['addtime <=']=$parameters['time']['end'];
+			}
 		}
 		$categories=$this->getData($condition);
 		if($parameters['result']=='data'){
