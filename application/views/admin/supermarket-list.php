@@ -50,7 +50,7 @@
 		</thead>
 		<tbody>
 			<?php foreach($superMarkets as $superMarket):?>
-				<?php var_dump($superMarket)?>
+				
 			<tr class="text-c">
 				<td><input type="checkbox" value="<?php echo $superMarket->id;?>" name="id"></td>
 				<td><img src="<?php echo $superMarket->logo;?>" width="100"></td>
