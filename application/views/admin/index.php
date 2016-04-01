@@ -66,6 +66,7 @@
 			<dd>
 				<ul>
 					<li><a _href="/admin/buyerlist" href="javascript:;">用户列表</a></li>
+					<li><a _href="/admin/adminlist" href="javascript:;">用户列表</a></li>
 					<!-- <li><a _href="member-del.html" href="javascript:;">删除的会员</a></li>
 					<li><a _href="member-level.html" href="javascript:;">等级管理</a></li>
 					<li><a _href="member-scoreoperation.html" href="javascript:;">积分管理</a></li>

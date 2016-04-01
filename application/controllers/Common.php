@@ -71,11 +71,26 @@ class Common extends CI_Controller {
 					"barcode"=>$data->barcode,
 					"price"=>$data->price,
 					"actualprice"=>$data->actualprice,
-					"pic1"=>strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1),
-					"pic2"=>strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2),
-					"pic3"=>strstr($data->photo3,'http')?$data->photo3:SERVER_IP.($data->photo3),
-					"pic4"=>strstr($data->photo4,'http')?$data->photo4:SERVER_IP.($data->photo4),
-					"pic5"=>strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5),
+					if(isset($data->photo1))
+					{
+						"pic1"=>strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1),
+					}
+					if(isset($data->photo2))
+					{
+						"pic2"=>strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2),
+					}
+					if(isset($data->photo3))
+					{
+						"pic2"=>strstr($data->photo3,'http')?$data->photo2:SERVER_IP.($data->photo3),
+					}
+					if(isset($data->photo4))
+					{
+						"pic2"=>strstr($data->photo4,'http')?$data->photo2:SERVER_IP.($data->photo4),
+					}
+					if(isset($data->photo5))
+					{
+						"pic2"=>strstr($data->photo5,'http')?$data->photo2:SERVER_IP.($data->photo5),
+					}
 					"categoryid"=>$data->categoryid,
 					"description"=>$data->description,
 					"expressfee"=>$data->expressfee,
