@@ -89,7 +89,7 @@ class Admin extends CI_Controller {
 			'view'=>'banner-list',
 			'data'=>array('banners'=>$banners,'pageInfo'=>$pageInfo)
 		);
-       
+
 		$this->adminCommonHandler($parameters);
 	}
 	public function banneradd(){
@@ -258,6 +258,7 @@ class Admin extends CI_Controller {
 			'view'=>'supermarket-list',
 			'data'=>array('superMarkets'=>$superMarkets,'pageInfo'=>$pageInfo)
 		);
+
 		$this->adminCommonHandler($parameters);
 	}
 	//超市账号管理
@@ -530,7 +531,7 @@ class Admin extends CI_Controller {
 			'view'=>'product-list',
 			'data'=>array('products'=>$products,'pageInfo'=>$pageInfo,'supermarkets'=>$supermarkets,'categories'=>$categories)
 		);
-       
+
 		$this->adminCommonHandler($parameters);
 	}
 	public function orderlist(){
