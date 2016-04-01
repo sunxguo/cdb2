@@ -253,7 +253,7 @@ class Admin extends CI_Controller {
 		$superMarketsParameters['result']='data';
 		// $superMarketsParameters['limit']=$pageInfo['limit'];
 		$superMarkets=$this->getdata->getSupermarkets($superMarketsParameters);
-
+       
 		$parameters=array(
 			'view'=>'supermarket-list',
 			'data'=>array('superMarkets'=>$superMarkets,'pageInfo'=>$pageInfo)
