@@ -64,6 +64,47 @@ class Common extends CI_Controller {
 			case "product":
 				$table="goods";
 				$time=date("Y-m-d H:i:s");
+				if(!empty($data->photo1))
+				{
+					$pic1=strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1);
+				}
+				else
+				{
+					$pic1='';
+				}
+				if(!empty($data->photo2))
+				{
+					$pic2=strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2);
+				}
+				else
+				{
+					$pic2='';
+				}
+				if(!empty($data->photo3))
+				{
+					$pic3=strstr($data->photo3,'http')?$data->photo3:SERVER_IP.($data->photo3);
+				}
+				else
+				{
+					$pic3='';
+				}
+				if(!empty($data->photo4))
+				{
+					$pic4=strstr($data->photo4,'http')?$data->photo4:SERVER_IP.($data->photo4);
+				}
+				else
+				{
+					$pic4='';
+				}
+				if(!empty($data->photo5))
+				{
+					
+					$pic5=strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5);
+				}
+				else
+				{
+					$pic5='';
+				}
 				$info=array(
 					"sid"=>$data->sid,
 					"name"=>$data->name,
@@ -71,21 +112,11 @@ class Common extends CI_Controller {
 					"barcode"=>$data->barcode,
 					"price"=>$data->price,
 					"actualprice"=>$data->actualprice,
-					
-						"pic1"=>strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1),
-					
-					
-						"pic2"=>strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2),
-					
-					
-						"pic3"=>strstr($data->photo3,'http')?$data->photo2:SERVER_IP.($data->photo3),
-					
-					
-						"pic4"=>strstr($data->photo4,'http')?$data->photo2:SERVER_IP.($data->photo4),
-					
-					
-						"pic5"=>strstr($data->photo5,'http')?$data->photo2:SERVER_IP.($data->photo5),
-					
+					"pic1"=>$pic1,
+					"pic2"=>$pic2,				
+					"pic3"=>$pic3,				
+					"pic4"=>$pic4,								
+					"pic5"=>$pic5,						
 					"categoryid"=>$data->categoryid,
 					"description"=>$data->description,
 					"expressfee"=>$data->expressfee,
@@ -492,25 +523,45 @@ class Common extends CI_Controller {
 				if(isset($data->price)){
 					$info['price']=$data->price;
 				}
-				if(isset($data->photo1)){
+				if(!empty($data->photo1)){
 
 					$info['pic1']=strstr($data->photo1,'http')?$data->photo1:SERVER_IP.($data->photo1);
 				}
-				if(isset($data->photo2)){
+				else
+				{
+					$info['pic1']='';
+				}
+				if(!empty($data->photo2)){
 
 					$info['pic2']=strstr($data->photo2,'http')?$data->photo2:SERVER_IP.($data->photo2);
 				}
-				if(isset($data->photo3)){
+				else
+				{
+                    $info['pic2']='';
+				}
+				if(!empty($data->photo3)){
 
 					$info['pic3']=strstr($data->photo3,'http')?$data->photo3:SERVER_IP.($data->photo3);
 				}
-				if(isset($data->photo4)){
+				else
+				{
+					$info['pic3']='';
+				}
+				if(!empty($data->photo4)){
 
 					$info['pic4']=strstr($data->photo4,'http')?$data->photo4:SERVER_IP.($data->photo4);
 				}
-				if(isset($data->photo5)){
+				else
+				{
+					$info['pic4']='';
+				}
+				if(!empty($data->photo5)){
 
 					$info['pic5']=strstr($data->photo5,'http')?$data->photo5:SERVER_IP.($data->photo5);
+				}
+				else
+				{
+					$info['pic5']='';
 				}
 				if(isset($data->isattend)){
 					$info['isattend']=$data->isattend;
