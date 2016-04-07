@@ -489,13 +489,14 @@ function saveCoupon(isNew,callBack){
 function saveSubSuperMarket(isNew,callBack){
     showWait();
     var subsupermarket = new Object(); 
-    subsupermarket.infoType = 'supermarket';
+    subsupermarket.infoType = 'subsupermarket';
     subsupermarket.supermarket = $("#supermarket").val();
     subsupermarket.sno = $("#sno").val();
     subsupermarket.sname = $("#sname").val();
     subsupermarket.province = $("#province").val();
     subsupermarket.city = $("#city").val();
     subsupermarket.area = $("#area").val();
+    subsupermarket.parentid = $("#supermarket").val();
     subsupermarket.detailedarea = $("#detailedarea").val();
     subsupermarket.logo = $("#thumbnail").attr('src');
     subsupermarket.lng = $("#lng").val();

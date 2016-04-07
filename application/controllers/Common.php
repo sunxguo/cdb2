@@ -148,16 +148,36 @@ class Common extends CI_Controller {
 				$table="category";
 				$time=date("Y-m-d H:i:s");
 				$category=$this->getdata->getContent('category',$data->superid);
-				$info=array(
+				if(empty($category->name))
+				{
+                    $where=array('id'=>$category->id);
+					$info=array(
 					"sid"=>$data->sid,
 					"superid"=>$data->superid,
 					"supername"=>$category->supername,
 					"name"=>$data->name,
 					"addtime"=>$time,
 					"edittime"=>$time
-				);
+				     );
+					$result=$this->dbHandler->updateData(array('table'=>$table,'where'=>$where,'data'=>$info));
+					if($result==1) echo json_encode(array("result"=>"success","message"=>"信息添加成功"));
+					else echo json_encode(array("result"=>"failed","message"=>"信息添加失败"));exit;
+				}
+				else
+				{
+                    $info=array(
+					"sid"=>$data->sid,
+					"superid"=>$data->superid,
+					"supername"=>$category->supername,
+					"name"=>$data->name,
+					"addtime"=>$time,
+					"edittime"=>$time
+				     );
+				}
+				
 			break;
 			case "supermarket":
+			//var_dump('123456');
 				if($this->getdata->isExist('supermarket',array('no'=>$data->no,'type'=>0))){
 					echo json_encode(array("result"=>"failed","message"=>"超市代码已经存在，请更换！"));
 					return false;
@@ -201,6 +221,7 @@ class Common extends CI_Controller {
 					"lng"=>$data->lng,
 					"lat"=>$data->lat,
 					"status"=>$data->status,
+					"parentid"=>$data->parentid,
 					"addtime"=>$time,
 					"edittime"=>$time
 				);

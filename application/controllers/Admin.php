@@ -218,7 +218,7 @@ class Admin extends CI_Controller {
 		$this->adminCommonHandler($parameters);
 	}
 	public function subsupermarketadd(){
-		$supermarkets=$this->getdata->getAllSupermarkets(false);
+		$supermarkets=$this->getdata->getAllSupermarkets(true,false);
 		$parameters=array(
 			'view'=>'subsupermarket-add',
 			'data'=>array('supermarkets'=>$supermarkets)
