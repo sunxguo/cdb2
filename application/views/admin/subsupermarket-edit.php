@@ -177,7 +177,7 @@ $(function(){
 		callback:function(form){
       // alert('ok');
 			// form[0].submit();
-      saveSubSuperMarket(false,function(){
+      updateSubSuperMarket(false,function(){
         alert('保存成功！');
         var index = parent.layer.getFrameIndex(window.name);
         // parent.$('.btn-refresh').click();

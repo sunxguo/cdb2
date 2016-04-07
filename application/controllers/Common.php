@@ -186,6 +186,11 @@ class Common extends CI_Controller {
 					echo json_encode(array("result"=>"failed","message"=>"超市编号已经存在，请更换！"));
 					return false;
 				}
+				if($this->getdata->isExist('supermarket',array('name'=>$data->name))){
+					echo json_encode(array("result"=>"failed","message"=>"超市名已经存在，请更换！"));
+					return false;
+				}
+				
 				$table="supermarket";
 				$time=date("Y-m-d H:i:s");
 				$info=array(
@@ -202,6 +207,10 @@ class Common extends CI_Controller {
 			case "subsupermarket":
 				if($this->getdata->isExist('supermarket',array('sno'=>$data->sno))){
 					echo json_encode(array("result"=>"failed","message"=>"超市编号已经存在，请更换！"));
+					return false;
+				}
+				if($this->getdata->isExist('supermarket',array('sname'=>$data->sname))){
+					echo json_encode(array("result"=>"failed","message"=>"分店名已经存在，请更换！"));
 					return false;
 				}
 				$table="supermarket";
@@ -477,6 +486,13 @@ class Common extends CI_Controller {
 					}
 					$info['sno']=$data->sno;
 				}
+				if(isset($data->sname)){
+					if($this->getdata->isModifyExist('supermarket',$data->id,array('sno'=>$data->sname))){
+						echo json_encode(array("result"=>"failed","message"=>"分店名已经存在，请更换！"));
+						return false;
+					}
+					$info['sname']=$data->sname;
+				}
 				if(isset($data->name)){
 					$info['name']=$data->name;
 				}
@@ -485,6 +501,9 @@ class Common extends CI_Controller {
 				}
 				if(isset($data->province)){
 					$info['province']=$data->province;
+				}
+				if(isset($data->parentid)){
+					$info['parentid']=$data->parentid;
 				}
 				if(isset($data->city)){
 					$info['city']=$data->city;

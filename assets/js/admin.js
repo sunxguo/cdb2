@@ -509,6 +509,30 @@ function saveSubSuperMarket(isNew,callBack){
     }
     dataHandler('/common/'+method+'Info',subsupermarket,null,null,null,callBack,false,false);
 }
+function updateSubSuperMarket(isNew,callBack){
+    showWait();
+    var subsupermarket = new Object(); 
+    subsupermarket.infoType = 'supermarket';
+    subsupermarket.supermarket = $("#supermarket").val();
+    subsupermarket.sno = $("#sno").val();
+    subsupermarket.sname = $("#sname").val();
+    subsupermarket.province = $("#province").val();
+    subsupermarket.city = $("#city").val();
+    subsupermarket.area = $("#area").val();
+    subsupermarket.parentid = $("#supermarket").val();
+    subsupermarket.detailedarea = $("#detailedarea").val();
+    subsupermarket.logo = $("#thumbnail").attr('src');
+    subsupermarket.lng = $("#lng").val();
+    subsupermarket.lat = $("#lat").val();
+    subsupermarket.status = $("input[name='status']:checked").val();
+    var method='modify';
+    if(!isNew){
+        subsupermarket.id = $("#id").val();
+        method = 'modify';
+    }
+    dataHandler('/common/'+method+'Info',subsupermarket,null,null,null,callBack,false,false);
+}
+
 function saveSuperMarket(isNew,callBack){
     showWait();
     var supermarket = new Object(); 
