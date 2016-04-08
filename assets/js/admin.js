@@ -525,7 +525,7 @@ function updateSubSuperMarket(isNew,callBack){
     subsupermarket.lng = $("#lng").val();
     subsupermarket.lat = $("#lat").val();
     subsupermarket.status = $("input[name='status']:checked").val();
-    var method='modify';
+    var method='';
     if(!isNew){
         subsupermarket.id = $("#id").val();
         method = 'modify';
