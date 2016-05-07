@@ -106,7 +106,7 @@
 	</table>
 	</div>
 </div>
-<script type="text/javascript" src="/assets/lib/laypage/1.2/laypage.js"></script>
+<!-- <script type="text/javascript" src="/assets/lib/laypage/1.2/laypage.js"></script> -->
 <script type="text/javascript">
 $(function(){
 	$('.table-sort').dataTable({

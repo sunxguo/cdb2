@@ -4,7 +4,7 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 分类管理 <a class="btn btn-success radius r mr-20 btn-refresh" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
 	<div class="text-c">
-		  超市：
+		 <!--  超市：
 		<select id="supermarket" class="select" style="height:31px;width:inherit;vertical-align:middle;">
           <option value="-1">所有</option>
           <?php foreach($supermarkets as $sm):?>
@@ -14,7 +14,7 @@
             <?php endforeach;?>
           </optgroup>
           <?php endforeach;?>
-        </select> 添加时间：
+        </select> --> 添加时间：
 		<input type="text" value="<?php echo isset($_GET['startTime'])?$_GET['startTime']:'';?>" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:120px;">
 		-
 		<input type="text" value="<?php echo isset($_GET['endTime'])?$_GET['endTime']:'';?>" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
@@ -31,7 +31,7 @@
 		<span class="l">
 			<a href="javascript:;" onclick="member_del_bulk()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 			<a href="javascript:;" onclick="member_add('添加分类','/admin/categoryadd','500','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加一级分类</a>
-			<a href="javascript:;" onclick="member_add('添加分类','/admin/subcategoryadd','500','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加二级分类</a>
+			
 			
 		</span> 
 		<span class="r">共有数据：<strong><?php echo $pageInfo['amount'];?></strong> 条</span> 
@@ -41,11 +41,11 @@
 		<thead>
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="id" value=""></th>
-				<th width="120">超市</th>
-				<th width="120">一级分类</th>
-				<th width="120">二级分类</th>
+				<th width="120">一级分类名</th>
 				<th width="80">排序序号</th>
 				<th width="120">添加时间</th>
+				<th width="120">更新时间</th>
+				<th width="120">状态</th>
 				<th width="80">操作</th>
 			</tr>
 		</thead>
@@ -53,7 +53,7 @@
 			<?php foreach($categories as $category):?>
 			<tr class="text-c">
 				<td><input type="checkbox" value="<?php echo $category->id;?>" name="id"></td>
-				<td><?php echo $category->supermarket->name.' - '.$category->supermarket->sname;?></td>
+				<td><?php echo $category->;?></td>
 				<td><?php echo $category->supername;?></td>
 				<td><?php echo $category->name;?></td>
 				<td><?php echo $category->order;?></td>

@@ -60,8 +60,9 @@ function successHandler(src){
 
 //上传第一张图片
 function uploadThumb1(){
+
     uploadImage("#uploadImgThumb1",beforeUpload1,successHandler1);
-    // console.log();
+    console.log();
 }
 function beforeUpload1(){
     $("#thumbnail1").attr('src','/assets/images/loading.gif');
@@ -113,6 +114,7 @@ function beforeUpload5(){
 function successHandler5(src){
     $("#thumbnail5").attr('src',src);
 }
+
 function searchBanner(){
     var extUrl='?placeholder=true';
     if($("#logmin").val()!=''){
